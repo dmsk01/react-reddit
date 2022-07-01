@@ -25,7 +25,7 @@ module.exports = {
       use:['ts-loader']
     },
     {
-      test:/\.css$/,
+      test:/\.s[ac]ss$/,
       use: [
         {
           loader:'css-loader',
@@ -36,7 +36,8 @@ module.exports = {
             },
             onlyLocals: true,
           }
-        }
+        },
+        'sass-loader',
       ],
       exclude: GLOBAL_CSS_REGEXP,
     },

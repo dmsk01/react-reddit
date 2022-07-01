@@ -37,9 +37,10 @@ module.exports= {
       use:['ts-loader']
     },
     {
-      test:/\.css$/,
+      test:/\.s[ac]ss$/,
       use: [
-        'style-loader',{
+        'style-loader',
+        {
           loader:'css-loader',
           options:{
             modules:{
@@ -47,7 +48,8 @@ module.exports= {
               localIdentName: '[name]__[local]--[hash:base64:5]'
             }
           }
-        }
+        },
+        'sass-loader',
       ],
       exclude: GLOBAL_CSS_REGEXP,
     },
