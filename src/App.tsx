@@ -1,12 +1,20 @@
 import React from 'react'
-import { hot } from 'react-hot-loader/root'
+import { hot } from 'react-hot-loader/root';
+import { Content } from './shared/Content';
+import { Header } from './shared/Header';
+import { Layout } from './shared/Layout';
 
-import {Header} from './shared/Header'
+import './main.global.scss';
 
 function AppComponent() {
   return (
     <div>
-      <Header></Header>
+      <Layout>
+       <Header/>
+       <Content>
+        content
+       </Content>
+      </Layout>
     </div>
   )
 }

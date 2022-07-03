@@ -26,6 +26,7 @@
     "@types/react-dom": "^18.0.5",
     "clean-webpack-plugin": "^4.0.0-alpha.0",
     "css-loader": "^3.4.2",
+    "generator-react-ts-component-dir": "^1.0.0",
     "html-webpack-plugin": "^4.5.2",
     "jest": "^28.1.2",
     "react-hot-loader": "^4.13.0",

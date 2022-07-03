@@ -4,3 +4,10 @@ declare module '*.scss' {
   };
   export = styles;
 }
+
+declare module '*.sass' {
+  const styles:{
+    [key:string]:string
+  };
+  export = styles;
+}
