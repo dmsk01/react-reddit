@@ -11,7 +11,9 @@ export function TextContent() {
             John Doe
           </a>
         </div>
-        <span className={styles.createdAt}>4 часа назад</span>
+        <span className={styles.createdAt}>
+          <span className={styles.publishedLabel}>опубликовано </span>4 часа назад
+        </span>
       </div>
       <h2 className={styles.title}>
         <a href="#post-url" className={styles.postLink}>
