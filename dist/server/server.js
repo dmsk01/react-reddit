@@ -153,7 +153,7 @@ eval("\r\nvar __importDefault = (this && this.__importDefault) || function (mod)
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\r\nvar __importDefault = (this && this.__importDefault) || function (mod) {\r\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\r\n};\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nexports.Card = void 0;\r\nvar react_1 = __importDefault(__webpack_require__(/*! react */ \"react\"));\r\nvar Controls_1 = __webpack_require__(/*! ../Controls */ \"./src/shared/CardsList/Controls/index.ts\");\r\nvar Menu_1 = __webpack_require__(/*! ../Menu */ \"./src/shared/CardsList/Menu/index.ts\");\r\nvar card_scss_1 = __importDefault(__webpack_require__(/*! ./card.scss */ \"./src/shared/CardsList/Card/card.scss\"));\r\nfunction Card() {\r\n    return (react_1.default.createElement(\"li\", { className: card_scss_1.default.card },\r\n        react_1.default.createElement(\"div\", { className: card_scss_1.default.textContent },\r\n            react_1.default.createElement(\"div\", { className: card_scss_1.default.metaData },\r\n                react_1.default.createElement(\"div\", { className: card_scss_1.default.userLink },\r\n                    react_1.default.createElement(\"img\", { className: card_scss_1.default.avatar, src: \"https://cdn-icons-png.flaticon.com/512/4128/4128176.png\", alt: \"Avatar\" }),\r\n                    react_1.default.createElement(\"a\", { href: \"#user-url\", className: card_scss_1.default.username }, \"John Doe\")),\r\n                react_1.default.createElement(\"span\", { className: card_scss_1.default.createdAt },\r\n                    react_1.default.createElement(\"span\", { className: card_scss_1.default.publishedLabel }, \"\\u043E\\u043F\\u0443\\u0431\\u043B\\u0438\\u043A\\u043E\\u0432\\u0430\\u043D\\u043E \"),\r\n                    \"4 \\u0447\\u0430\\u0441\\u0430 \\u043D\\u0430\\u0437\\u0430\\u0434\")),\r\n            react_1.default.createElement(\"h2\", { className: card_scss_1.default.title },\r\n                react_1.default.createElement(\"a\", { href: \"#post-url\", className: card_scss_1.default.postLink }, \"It should be pointed out that agreement organisation model should be mo flexible.\"))),\r\n        react_1.default.createElement(\"div\", { className: card_scss_1.default.preview },\r\n            react_1.default.createElement(\"img\", { className: card_scss_1.default.previewImg, src: \"https://7themes.su/_ph/31/192346372.jpg\", alt: \"Post image\" })),\r\n        react_1.default.createElement(Menu_1.Menu, null),\r\n        react_1.default.createElement(Controls_1.Controls, null)));\r\n}\r\nexports.Card = Card;\r\n\n\n//# sourceURL=webpack:///./src/shared/CardsList/Card/Card.tsx?");
+eval("\r\nvar __importDefault = (this && this.__importDefault) || function (mod) {\r\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\r\n};\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nexports.Card = void 0;\r\nvar react_1 = __importDefault(__webpack_require__(/*! react */ \"react\"));\r\nvar Controls_1 = __webpack_require__(/*! ../Controls */ \"./src/shared/CardsList/Controls/index.ts\");\r\nvar Menu_1 = __webpack_require__(/*! ../Menu */ \"./src/shared/CardsList/Menu/index.ts\");\r\nvar Preview_1 = __webpack_require__(/*! ../Preview */ \"./src/shared/CardsList/Preview/index.ts\");\r\nvar TextContent_1 = __webpack_require__(/*! ../TextContent */ \"./src/shared/CardsList/TextContent/index.ts\");\r\nvar card_scss_1 = __importDefault(__webpack_require__(/*! ./card.scss */ \"./src/shared/CardsList/Card/card.scss\"));\r\nfunction Card() {\r\n    return (react_1.default.createElement(\"li\", { className: card_scss_1.default.card },\r\n        react_1.default.createElement(TextContent_1.TextContent, null),\r\n        react_1.default.createElement(Preview_1.Preview, null),\r\n        react_1.default.createElement(Menu_1.Menu, null),\r\n        react_1.default.createElement(Controls_1.Controls, null)));\r\n}\r\nexports.Card = Card;\r\n\n\n//# sourceURL=webpack:///./src/shared/CardsList/Card/Card.tsx?");
 
 /***/ }),
 
@@ -164,7 +164,7 @@ eval("\r\nvar __importDefault = (this && this.__importDefault) || function (mod)
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("// Exports\nmodule.exports = {\n\t\"card\": \"card__card--3SaHQ\",\n\t\"textContent\": \"card__textContent--3GYwB\",\n\t\"preview\": \"card__preview--1Y63r\",\n\t\"previewImg\": \"card__previewImg--1P_Je\",\n\t\"metaData\": \"card__metaData--1Iw0r\",\n\t\"publishedLabel\": \"card__publishedLabel--1cms_\",\n\t\"createdAt\": \"card__createdAt--gc3er\",\n\t\"title\": \"card__title--2XlOd\",\n\t\"postLink\": \"card__postLink--1zLC8\",\n\t\"username\": \"card__username--1VTFN\",\n\t\"userLink\": \"card__userLink--2Q4e4\",\n\t\"avatar\": \"card__avatar--yPVLr\"\n};\n\n\n//# sourceURL=webpack:///./src/shared/CardsList/Card/card.scss?");
+eval("// Exports\nmodule.exports = {\n\t\"card\": \"card__card--3SaHQ\",\n\t\"textContent\": \"card__textContent--3GYwB\",\n\t\"username\": \"card__username--1VTFN\",\n\t\"userLink\": \"card__userLink--2Q4e4\",\n\t\"avatar\": \"card__avatar--yPVLr\"\n};\n\n\n//# sourceURL=webpack:///./src/shared/CardsList/Card/card.scss?");
 
 /***/ }),
 
@@ -247,6 +247,76 @@ eval("\r\nvar __createBinding = (this && this.__createBinding) || (Object.create
 /***/ (function(module, exports) {
 
 eval("// Exports\nmodule.exports = {\n\t\"menu\": \"menu__menu--2AWNr\",\n\t\"menuButton\": \"menu__menuButton--2Z8EP\",\n\t\"dropdown\": \"menu__dropdown--1Og_O\",\n\t\"closeButton\": \"menu__closeButton--2gLVy\"\n};\n\n\n//# sourceURL=webpack:///./src/shared/CardsList/Menu/menu.scss?");
+
+/***/ }),
+
+/***/ "./src/shared/CardsList/Preview/Preview.tsx":
+/*!**************************************************!*\
+  !*** ./src/shared/CardsList/Preview/Preview.tsx ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\r\nvar __importDefault = (this && this.__importDefault) || function (mod) {\r\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\r\n};\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nexports.Preview = void 0;\r\nvar react_1 = __importDefault(__webpack_require__(/*! react */ \"react\"));\r\nvar preview_scss_1 = __importDefault(__webpack_require__(/*! ./preview.scss */ \"./src/shared/CardsList/Preview/preview.scss\"));\r\nfunction Preview() {\r\n    return (react_1.default.createElement(\"div\", { className: preview_scss_1.default.preview },\r\n        react_1.default.createElement(\"img\", { className: preview_scss_1.default.previewImg, src: \"https://7themes.su/_ph/31/192346372.jpg\", alt: \"Post image\" })));\r\n}\r\nexports.Preview = Preview;\r\n\n\n//# sourceURL=webpack:///./src/shared/CardsList/Preview/Preview.tsx?");
+
+/***/ }),
+
+/***/ "./src/shared/CardsList/Preview/index.ts":
+/*!***********************************************!*\
+  !*** ./src/shared/CardsList/Preview/index.ts ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\r\nvar __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {\r\n    if (k2 === undefined) k2 = k;\r\n    var desc = Object.getOwnPropertyDescriptor(m, k);\r\n    if (!desc || (\"get\" in desc ? !m.__esModule : desc.writable || desc.configurable)) {\r\n      desc = { enumerable: true, get: function() { return m[k]; } };\r\n    }\r\n    Object.defineProperty(o, k2, desc);\r\n}) : (function(o, m, k, k2) {\r\n    if (k2 === undefined) k2 = k;\r\n    o[k2] = m[k];\r\n}));\r\nvar __exportStar = (this && this.__exportStar) || function(m, exports) {\r\n    for (var p in m) if (p !== \"default\" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);\r\n};\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\n__exportStar(__webpack_require__(/*! ./Preview */ \"./src/shared/CardsList/Preview/Preview.tsx\"), exports);\r\n\n\n//# sourceURL=webpack:///./src/shared/CardsList/Preview/index.ts?");
+
+/***/ }),
+
+/***/ "./src/shared/CardsList/Preview/preview.scss":
+/*!***************************************************!*\
+  !*** ./src/shared/CardsList/Preview/preview.scss ***!
+  \***************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("// Exports\nmodule.exports = {\n\t\"preview\": \"preview__preview--212Eh\",\n\t\"previewImg\": \"preview__previewImg--1aIBc\"\n};\n\n\n//# sourceURL=webpack:///./src/shared/CardsList/Preview/preview.scss?");
+
+/***/ }),
+
+/***/ "./src/shared/CardsList/TextContent/TextContent.tsx":
+/*!**********************************************************!*\
+  !*** ./src/shared/CardsList/TextContent/TextContent.tsx ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\r\nvar __importDefault = (this && this.__importDefault) || function (mod) {\r\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\r\n};\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nexports.TextContent = void 0;\r\nvar react_1 = __importDefault(__webpack_require__(/*! react */ \"react\"));\r\nvar textcontent_scss_1 = __importDefault(__webpack_require__(/*! ./textcontent.scss */ \"./src/shared/CardsList/TextContent/textcontent.scss\"));\r\nfunction TextContent() {\r\n    return (react_1.default.createElement(\"div\", { className: textcontent_scss_1.default.textContent },\r\n        react_1.default.createElement(\"div\", { className: textcontent_scss_1.default.metaData },\r\n            react_1.default.createElement(\"div\", { className: textcontent_scss_1.default.userLink },\r\n                react_1.default.createElement(\"img\", { className: textcontent_scss_1.default.avatar, src: \"https://cdn-icons-png.flaticon.com/512/4128/4128176.png\", alt: \"Avatar\" }),\r\n                react_1.default.createElement(\"a\", { href: \"#user-url\", className: textcontent_scss_1.default.username }, \"John Doe\")),\r\n            react_1.default.createElement(\"span\", { className: textcontent_scss_1.default.createdAt },\r\n                react_1.default.createElement(\"span\", { className: textcontent_scss_1.default.publishedLabel }, \"\\u043E\\u043F\\u0443\\u0431\\u043B\\u0438\\u043A\\u043E\\u0432\\u0430\\u043D\\u043E \"),\r\n                \"4 \\u0447\\u0430\\u0441\\u0430 \\u043D\\u0430\\u0437\\u0430\\u0434\")),\r\n        react_1.default.createElement(\"h2\", { className: textcontent_scss_1.default.title },\r\n            react_1.default.createElement(\"a\", { href: \"#post-url\", className: textcontent_scss_1.default.postLink }, \"It should be pointed out that agreement organisation model should be mo flexible.\"))));\r\n}\r\nexports.TextContent = TextContent;\r\n\n\n//# sourceURL=webpack:///./src/shared/CardsList/TextContent/TextContent.tsx?");
+
+/***/ }),
+
+/***/ "./src/shared/CardsList/TextContent/index.ts":
+/*!***************************************************!*\
+  !*** ./src/shared/CardsList/TextContent/index.ts ***!
+  \***************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\r\nvar __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {\r\n    if (k2 === undefined) k2 = k;\r\n    var desc = Object.getOwnPropertyDescriptor(m, k);\r\n    if (!desc || (\"get\" in desc ? !m.__esModule : desc.writable || desc.configurable)) {\r\n      desc = { enumerable: true, get: function() { return m[k]; } };\r\n    }\r\n    Object.defineProperty(o, k2, desc);\r\n}) : (function(o, m, k, k2) {\r\n    if (k2 === undefined) k2 = k;\r\n    o[k2] = m[k];\r\n}));\r\nvar __exportStar = (this && this.__exportStar) || function(m, exports) {\r\n    for (var p in m) if (p !== \"default\" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);\r\n};\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\n__exportStar(__webpack_require__(/*! ./TextContent */ \"./src/shared/CardsList/TextContent/TextContent.tsx\"), exports);\r\n\n\n//# sourceURL=webpack:///./src/shared/CardsList/TextContent/index.ts?");
+
+/***/ }),
+
+/***/ "./src/shared/CardsList/TextContent/textcontent.scss":
+/*!***********************************************************!*\
+  !*** ./src/shared/CardsList/TextContent/textcontent.scss ***!
+  \***********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("// Exports\nmodule.exports = {\n\t\"textContent\": \"textcontent__textContent--YLHbW\",\n\t\"metaData\": \"textcontent__metaData--33E7W\",\n\t\"publishedLabel\": \"textcontent__publishedLabel--2e7Er\",\n\t\"createdAt\": \"textcontent__createdAt--1CnjL\",\n\t\"title\": \"textcontent__title--2EvZB\",\n\t\"postLink\": \"textcontent__postLink--38Anu\",\n\t\"userLink\": \"textcontent__userLink--VQdey\",\n\t\"avatar\": \"textcontent__avatar--3gdVu\",\n\t\"username\": \"textcontent__username--2LKAj\"\n};\n\n\n//# sourceURL=webpack:///./src/shared/CardsList/TextContent/textcontent.scss?");
 
 /***/ }),
 

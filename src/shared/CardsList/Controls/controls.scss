@@ -3,6 +3,10 @@
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
+  align-items: center;
+  & > *:not(:last-child) {
+    margin-right: 30px;
+  }
 }
 
 .actions {
@@ -13,7 +17,7 @@
   margin: 0 0 0 13px;
 }
 
-@media all and (min-width: 1024px) {
+@media (min-width: 1024px) {
   .controls {
     order: 3;
     flex: 0 0;
@@ -41,7 +45,7 @@ svg.downArr {
   transform: rotate(180deg);
 }
 
-@media all and (min-width: 1024px) {
+@media (min-width: 1024px) {
   .karmaCounter {
     display: flex;
     align-items: center;
@@ -63,7 +67,7 @@ svg.downArr {
   transition: fill 0.3s ease 0s;
 }
 
-@media all and (min-width: 1540px) {
+@media (min-width: 1540px) {
   .karmaCounter > button.up:hover > svg > path {
     fill: var(--green);
   }
@@ -88,7 +92,7 @@ svg.downArr {
   line-height: 14px;
 }
 
-@media all and (min-width: 1024px) {
+@media (min-width: 1024px) {
   .commentsButton {
     display: none;
   }
