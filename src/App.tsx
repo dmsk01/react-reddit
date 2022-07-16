@@ -3,42 +3,20 @@ import { hot } from "react-hot-loader/root";
 import { Content } from "./shared/Content";
 import { Header } from "./shared/Header";
 import { Layout } from "./shared/Layout";
+import { CardsList } from "./shared/CardsList";
 
 import "./main.global.scss";
-import { CardsList } from "./shared/CardsList";
-import { generateId } from "./utils/react/generateRandomIndex";
-import { GenericList } from "./shared/GenericList";
-import merge from "./utils/js/merge";
-import { Dropdown } from "./shared/Dropdown";
-
-const LIST = [
-  { As: "li" as const, text: "some" },
-  { As: "li" as const, text: "other some" },
-  { As: "li" as const, text: "some" },
-].map(generateId);
+import { EIcons, Icon } from "./shared/Icon";
 
 function AppComponent() {
-  const [list, setList] = React.useState(LIST);
-  const handleItemClick = (id: string) => {
-    setList(list.filter((item) => item.id !== id));
-  };
-
   return (
     <div>
       <Layout>
         <Header />
         <Content>
           <CardsList />
+          <Icon name={EIcons.warning} />
         </Content>
-        <Dropdown
-          onOpen={() => console.log("opened")}
-          onClose={() => console.log("closed")}
-          button={<button type="button">test</button>}
-        >
-          <ul>
-            <GenericList list={list.map(merge({ onClick: handleItemClick }))} />
-          </ul>
-        </Dropdown>
       </Layout>
     </div>
   );
