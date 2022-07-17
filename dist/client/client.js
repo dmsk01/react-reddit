@@ -63,7 +63,7 @@
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
-/******/ 	var hotCurrentHash = "513dbec4ab71187f728a";
+/******/ 	var hotCurrentHash = "e213a873143b6c8120a4";
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -918,6 +918,17 @@ eval("// Imports\nvar ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../n
 
 /***/ }),
 
+/***/ "./node_modules/css-loader/dist/cjs.js?!./node_modules/sass-loader/dist/cjs.js!./src/shared/Break/break.scss":
+/*!****************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??ref--5-1!./node_modules/sass-loader/dist/cjs.js!./src/shared/Break/break.scss ***!
+  \****************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("// Imports\nvar ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\");\nexports = ___CSS_LOADER_API_IMPORT___(false);\n// Module\nexports.push([module.i, \".break__s4--3kctv {\\n  padding: 0 4px 0 0;\\n}\\n\\n.break__s8--psbgx {\\n  padding: 0 8px 0 0;\\n}\\n\\n.break__s12--hyZ-e {\\n  padding: 0 12px 0 0;\\n}\\n\\n.break__s16--3GLW7 {\\n  padding: 0 16px 0 0;\\n}\\n\\n.break__s20--2znbf {\\n  padding: 0 20px 0 0;\\n}\\n\\n.break__inline--1-WLz {\\n  display: inline;\\n}\\n\\n.break__top--2QE-5.break__s4--3kctv {\\n  padding: 4px 0 0;\\n}\\n\\n.break__top--2QE-5.break__s8--psbgx {\\n  padding: 8px 0 0;\\n}\\n\\n.break__top--2QE-5.break__s12--hyZ-e {\\n  padding: 12px 0 0;\\n}\\n\\n.break__top--2QE-5.break__s16--3GLW7 {\\n  padding: 16px 0 0;\\n}\\n\\n.break__top--2QE-5.break__s20--2znbf {\\n  padding: 20px 0 0;\\n}\\n\\n@media all and (max-width: 1023px) {\\n  .break__mobile_s4--HSL_1 {\\n    padding: 0 4px 0 0;\\n  }\\n  .break__mobile_s8--1hWLe {\\n    padding: 0 8px 0 0;\\n  }\\n  .break__mobile_s12--3Sggf {\\n    padding: 0 12px 0 0;\\n  }\\n  .break__mobile_s16--3zAL1 {\\n    padding: 0 16px 0 0;\\n  }\\n  .break__mobile_s20--3WdEu {\\n    padding: 0 20px 0 0;\\n  }\\n  .break__top--2QE-5.break__mobile_s4--HSL_1 {\\n    padding: 4px 0 0;\\n  }\\n  .break__top--2QE-5.break__mobile_s8--1hWLe {\\n    padding: 8px 0 0;\\n  }\\n  .break__top--2QE-5.break__mobile_s12--3Sggf {\\n    padding: 12px 0 0;\\n  }\\n  .break__top--2QE-5.break__mobile_s16--3zAL1 {\\n    padding: 16px 0 0;\\n  }\\n  .break__top--2QE-5.break__mobile_s20--3WdEu {\\n    padding: 20px 0 0;\\n  }\\n}\\n@media all and (min-width: 1024px) and (max-width: 1539px) {\\n  .break__tablet_s4--3_TIi {\\n    padding: 0 4px 0 0;\\n  }\\n  .break__tablet_s8--2fJ0_ {\\n    padding: 0 8px 0 0;\\n  }\\n  .break__tablet_s12--20Xnc {\\n    padding: 0 12px 0 0;\\n  }\\n  .break__tablet_s16--167Fu {\\n    padding: 0 16px 0 0;\\n  }\\n  .break__tablet_s20--16SRw {\\n    padding: 0 20px 0 0;\\n  }\\n  .break__top--2QE-5.break__tablet_s4--3_TIi {\\n    padding: 4px 0 0;\\n  }\\n  .break__top--2QE-5.break__tablet_s8--2fJ0_ {\\n    padding: 8px 0 0;\\n  }\\n  .break__top--2QE-5.break__tablet_s12--20Xnc {\\n    padding: 12px 0 0;\\n  }\\n  .break__top--2QE-5.break__tablet_s16--167Fu {\\n    padding: 16px 0 0;\\n  }\\n  .break__top--2QE-5.break__tablet_s20--16SRw {\\n    padding: 20px 0 0;\\n  }\\n}\\n@media all and (min-width: 1540px) {\\n  .break__desktop_s4--3Ahl5 {\\n    padding: 0 4px 0 0;\\n  }\\n  .break__desktop_s8--1hZOk {\\n    padding: 0 8px 0 0;\\n  }\\n  .break__desktop_s12--3tEJg {\\n    padding: 0 12px 0 0;\\n  }\\n  .break__desktop_s16--3bDgP {\\n    padding: 0 16px 0 0;\\n  }\\n  .break__desktop_s20--28y3I {\\n    padding: 0 20px 0 0;\\n  }\\n  .break__top--2QE-5.break__desktop_s4--3Ahl5 {\\n    padding: 4px 0 0;\\n  }\\n  .break__top--2QE-5.break__desktop_s8--1hZOk {\\n    padding: 8px 0 0;\\n  }\\n  .break__top--2QE-5.break__desktop_s12--3tEJg {\\n    padding: 12px 0 0;\\n  }\\n  .break__top--2QE-5.break__desktop_s16--3bDgP {\\n    padding: 16px 0 0;\\n  }\\n  .break__top--2QE-5.break__desktop_s20--28y3I {\\n    padding: 20px 0 0;\\n  }\\n}\", \"\"]);\n// Exports\nexports.locals = {\n\t\"s4\": \"break__s4--3kctv\",\n\t\"s8\": \"break__s8--psbgx\",\n\t\"s12\": \"break__s12--hyZ-e\",\n\t\"s16\": \"break__s16--3GLW7\",\n\t\"s20\": \"break__s20--2znbf\",\n\t\"inline\": \"break__inline--1-WLz\",\n\t\"top\": \"break__top--2QE-5\",\n\t\"mobile_s4\": \"break__mobile_s4--HSL_1\",\n\t\"mobile_s8\": \"break__mobile_s8--1hWLe\",\n\t\"mobile_s12\": \"break__mobile_s12--3Sggf\",\n\t\"mobile_s16\": \"break__mobile_s16--3zAL1\",\n\t\"mobile_s20\": \"break__mobile_s20--3WdEu\",\n\t\"tablet_s4\": \"break__tablet_s4--3_TIi\",\n\t\"tablet_s8\": \"break__tablet_s8--2fJ0_\",\n\t\"tablet_s12\": \"break__tablet_s12--20Xnc\",\n\t\"tablet_s16\": \"break__tablet_s16--167Fu\",\n\t\"tablet_s20\": \"break__tablet_s20--16SRw\",\n\t\"desktop_s4\": \"break__desktop_s4--3Ahl5\",\n\t\"desktop_s8\": \"break__desktop_s8--1hZOk\",\n\t\"desktop_s12\": \"break__desktop_s12--3tEJg\",\n\t\"desktop_s16\": \"break__desktop_s16--3bDgP\",\n\t\"desktop_s20\": \"break__desktop_s20--28y3I\"\n};\nmodule.exports = exports;\n\n\n//# sourceURL=webpack:///./src/shared/Break/break.scss?./node_modules/css-loader/dist/cjs.js??ref--5-1!./node_modules/sass-loader/dist/cjs.js");
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/dist/cjs.js?!./node_modules/sass-loader/dist/cjs.js!./src/shared/CardsList/Card/card.scss":
 /*!************************************************************************************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js??ref--5-1!./node_modules/sass-loader/dist/cjs.js!./src/shared/CardsList/Card/card.scss ***!
@@ -1014,6 +1025,17 @@ eval("// Imports\nvar ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../.
 /***/ (function(module, exports, __webpack_require__) {
 
 eval("// Imports\nvar ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\");\nexports = ___CSS_LOADER_API_IMPORT___(false);\n// Module\nexports.push([module.i, \".dropdown__container--o1mMR {\\n  width: 100%;\\n  flex: 1 1 0%;\\n}\\n\\n.dropdown__listContainer--3nCwY {\\n  position: relative;\\n}\\n\\n.dropdown__list--1nfRv {\\n  position: absolute;\\n  left: 0;\\n  top: 0;\\n  width: 100%;\\n  height: 100%;\\n}\", \"\"]);\n// Exports\nexports.locals = {\n\t\"container\": \"dropdown__container--o1mMR\",\n\t\"listContainer\": \"dropdown__listContainer--3nCwY\",\n\t\"list\": \"dropdown__list--1nfRv\"\n};\nmodule.exports = exports;\n\n\n//# sourceURL=webpack:///./src/shared/Dropdown/dropdown.scss?./node_modules/css-loader/dist/cjs.js??ref--5-1!./node_modules/sass-loader/dist/cjs.js");
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js?!./node_modules/sass-loader/dist/cjs.js!./src/shared/Header/SearcBlock/UserBlock/userBlock.scss":
+/*!******************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??ref--5-1!./node_modules/sass-loader/dist/cjs.js!./src/shared/Header/SearcBlock/UserBlock/userBlock.scss ***!
+  \******************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("// Imports\nvar ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\");\nexports = ___CSS_LOADER_API_IMPORT___(false);\n// Module\nexports.push([module.i, \".userBlock__userBox--20u0c {\\n  cursor: pointer;\\n  display: flex;\\n  align-items: center;\\n}\\n\\n.userBlock__userBox--20u0c:hover span {\\n  color: var(--orange);\\n}\\n\\n.userBlock__userBox--20u0c:hover .userBlock__avatarBox--2CiEB {\\n  box-shadow: 0 0 0 1px var(--orange);\\n}\\n\\n.userBlock__avatarBox--2CiEB {\\n  width: 60px;\\n  height: 60px;\\n  padding: 5px;\\n  border-radius: 100%;\\n  box-shadow: none;\\n}\\n\\n.userBlock__avatarImage--2sxJc {\\n  width: 100%;\\n  height: 100%;\\n  object-fit: cover;\\n  border-radius: 100%;\\n}\\n\\n.userBlock__username--MJGdJ {\\n  display: none;\\n}\\n\\n@media all and (min-width: 1024px) {\\n  .userBlock__username--MJGdJ {\\n    display: flex;\\n  }\\n}\", \"\"]);\n// Exports\nexports.locals = {\n\t\"userBox\": \"userBlock__userBox--20u0c\",\n\t\"avatarBox\": \"userBlock__avatarBox--2CiEB\",\n\t\"avatarImage\": \"userBlock__avatarImage--2sxJc\",\n\t\"username\": \"userBlock__username--MJGdJ\"\n};\nmodule.exports = exports;\n\n\n//# sourceURL=webpack:///./src/shared/Header/SearcBlock/UserBlock/userBlock.scss?./node_modules/css-loader/dist/cjs.js??ref--5-1!./node_modules/sass-loader/dist/cjs.js");
 
 /***/ }),
 
@@ -1584,6 +1606,41 @@ eval("var api = __webpack_require__(/*! ../node_modules/style-loader/dist/runtim
 
 /***/ }),
 
+/***/ "./src/shared/Break/Break.tsx":
+/*!************************************!*\
+  !*** ./src/shared/Break/Break.tsx ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\r\nvar __importDefault = (this && this.__importDefault) || function (mod) {\r\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\r\n};\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nexports.Break = void 0;\r\nvar react_1 = __importDefault(__webpack_require__(/*! react */ \"./node_modules/react/index.js\"));\r\nvar classnames_1 = __importDefault(__webpack_require__(/*! classnames */ \"./node_modules/classnames/index.js\"));\r\nvar break_scss_1 = __importDefault(__webpack_require__(/*! ./break.scss */ \"./src/shared/Break/break.scss\"));\r\nfunction Break(props) {\r\n    var _a, _b, _c, _d, _e;\r\n    var size = props.size, _f = props.inline, inline = _f === void 0 ? false : _f, _g = props.top, top = _g === void 0 ? false : _g, mobileSize = props.mobileSize, tabletSize = props.tabletSize, desktopSize = props.desktopSize;\r\n    return (react_1.default.createElement(\"div\", { className: (0, classnames_1.default)(break_scss_1.default[\"s\".concat(size)], (_a = {}, _a[break_scss_1.default[\"mobile_s\".concat(mobileSize)]] = mobileSize, _a), (_b = {}, _b[break_scss_1.default[\"tablet_s\".concat(tabletSize)]] = tabletSize, _b), (_c = {}, _c[break_scss_1.default[\"desktop_s\".concat(desktopSize)]] = desktopSize, _c), (_d = {}, _d[break_scss_1.default.inline] = inline, _d), (_e = {}, _e[break_scss_1.default.top] = top, _e)) }));\r\n}\r\nexports.Break = Break;\r\n\n\n//# sourceURL=webpack:///./src/shared/Break/Break.tsx?");
+
+/***/ }),
+
+/***/ "./src/shared/Break/break.scss":
+/*!*************************************!*\
+  !*** ./src/shared/Break/break.scss ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("var api = __webpack_require__(/*! ../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ \"./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js\");\n            var content = __webpack_require__(/*! !../../../node_modules/css-loader/dist/cjs.js??ref--5-1!../../../node_modules/sass-loader/dist/cjs.js!./break.scss */ \"./node_modules/css-loader/dist/cjs.js?!./node_modules/sass-loader/dist/cjs.js!./src/shared/Break/break.scss\");\n\n            content = content.__esModule ? content.default : content;\n\n            if (typeof content === 'string') {\n              content = [[module.i, content, '']];\n            }\n\nvar options = {};\n\noptions.insert = \"head\";\noptions.singleton = false;\n\nvar update = api(content, options);\n\nvar exported = content.locals ? content.locals : {};\n\n\nif (true) {\n  if (!content.locals) {\n    module.hot.accept(\n      /*! !../../../node_modules/css-loader/dist/cjs.js??ref--5-1!../../../node_modules/sass-loader/dist/cjs.js!./break.scss */ \"./node_modules/css-loader/dist/cjs.js?!./node_modules/sass-loader/dist/cjs.js!./src/shared/Break/break.scss\",\n      function () {\n        var newContent = __webpack_require__(/*! !../../../node_modules/css-loader/dist/cjs.js??ref--5-1!../../../node_modules/sass-loader/dist/cjs.js!./break.scss */ \"./node_modules/css-loader/dist/cjs.js?!./node_modules/sass-loader/dist/cjs.js!./src/shared/Break/break.scss\");\n\n              newContent = newContent.__esModule ? newContent.default : newContent;\n\n              if (typeof newContent === 'string') {\n                newContent = [[module.i, newContent, '']];\n              }\n\n              update(newContent);\n      }\n    )\n  }\n\n  module.hot.dispose(function() { \n    update();\n  });\n}\n\nmodule.exports = exported;\n\n//# sourceURL=webpack:///./src/shared/Break/break.scss?");
+
+/***/ }),
+
+/***/ "./src/shared/Break/index.ts":
+/*!***********************************!*\
+  !*** ./src/shared/Break/index.ts ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\r\nvar __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {\r\n    if (k2 === undefined) k2 = k;\r\n    var desc = Object.getOwnPropertyDescriptor(m, k);\r\n    if (!desc || (\"get\" in desc ? !m.__esModule : desc.writable || desc.configurable)) {\r\n      desc = { enumerable: true, get: function() { return m[k]; } };\r\n    }\r\n    Object.defineProperty(o, k2, desc);\r\n}) : (function(o, m, k, k2) {\r\n    if (k2 === undefined) k2 = k;\r\n    o[k2] = m[k];\r\n}));\r\nvar __exportStar = (this && this.__exportStar) || function(m, exports) {\r\n    for (var p in m) if (p !== \"default\" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);\r\n};\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\n__exportStar(__webpack_require__(/*! ./Break */ \"./src/shared/Break/Break.tsx\"), exports);\r\n\n\n//# sourceURL=webpack:///./src/shared/Break/index.ts?");
+
+/***/ }),
+
 /***/ "./src/shared/CardsList/Card/Card.tsx":
 /*!********************************************!*\
   !*** ./src/shared/CardsList/Card/Card.tsx ***!
@@ -1895,7 +1952,30 @@ eval("\r\nvar __importDefault = (this && this.__importDefault) || function (mod)
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\r\nvar __importDefault = (this && this.__importDefault) || function (mod) {\r\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\r\n};\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nexports.SearcBlock = void 0;\r\nvar react_1 = __importDefault(__webpack_require__(/*! react */ \"./node_modules/react/index.js\"));\r\nvar searcblock_scss_1 = __importDefault(__webpack_require__(/*! ./searcblock.scss */ \"./src/shared/Header/SearcBlock/searcblock.scss\"));\r\nfunction SearcBlock() {\r\n    return (react_1.default.createElement(\"div\", { className: searcblock_scss_1.default.searchBlock }, \"search block\"));\r\n}\r\nexports.SearcBlock = SearcBlock;\r\n\n\n//# sourceURL=webpack:///./src/shared/Header/SearcBlock/SearcBlock.tsx?");
+eval("\r\nvar __importDefault = (this && this.__importDefault) || function (mod) {\r\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\r\n};\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nexports.SearcBlock = void 0;\r\nvar react_1 = __importDefault(__webpack_require__(/*! react */ \"./node_modules/react/index.js\"));\r\nvar searcblock_scss_1 = __importDefault(__webpack_require__(/*! ./searcblock.scss */ \"./src/shared/Header/SearcBlock/searcblock.scss\"));\r\nvar UserBlock_1 = __importDefault(__webpack_require__(/*! ./UserBlock/UserBlock */ \"./src/shared/Header/SearcBlock/UserBlock/UserBlock.tsx\"));\r\nfunction SearcBlock() {\r\n    return (react_1.default.createElement(\"div\", { className: searcblock_scss_1.default.searchBlock },\r\n        react_1.default.createElement(UserBlock_1.default, null)));\r\n}\r\nexports.SearcBlock = SearcBlock;\r\n\n\n//# sourceURL=webpack:///./src/shared/Header/SearcBlock/SearcBlock.tsx?");
+
+/***/ }),
+
+/***/ "./src/shared/Header/SearcBlock/UserBlock/UserBlock.tsx":
+/*!**************************************************************!*\
+  !*** ./src/shared/Header/SearcBlock/UserBlock/UserBlock.tsx ***!
+  \**************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\r\nvar __importDefault = (this && this.__importDefault) || function (mod) {\r\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\r\n};\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nvar react_1 = __importDefault(__webpack_require__(/*! react */ \"./node_modules/react/index.js\"));\r\nvar Break_1 = __webpack_require__(/*! ../../../Break */ \"./src/shared/Break/index.ts\");\r\nvar Icons_1 = __webpack_require__(/*! ../../../Icons */ \"./src/shared/Icons/index.ts\");\r\nvar Text_1 = __webpack_require__(/*! ../../../Text */ \"./src/shared/Text/index.ts\");\r\nvar userBlock_scss_1 = __importDefault(__webpack_require__(/*! ./userBlock.scss */ \"./src/shared/Header/SearcBlock/UserBlock/userBlock.scss\"));\r\nfunction UserBlock(_a) {\r\n    var avatarSrc = _a.avatarSrc, username = _a.username;\r\n    return (react_1.default.createElement(\"a\", { className: userBlock_scss_1.default.userBox, href: \"https://www.reddit.com/api/v1/authorize?client_id=\".concat('FrAoxulM3-8J2as0O2ePdg', \"&response_type=code&state=random_string&redirect_uri=http://localhost:3000/auth&duration=permanent&scope=read submit identity\") },\r\n        react_1.default.createElement(\"div\", { className: userBlock_scss_1.default.avatarBox }, avatarSrc ? (react_1.default.createElement(\"img\", { src: avatarSrc, alt: \"user avatar\", className: userBlock_scss_1.default.avatarImage })) : (react_1.default.createElement(Icons_1.AnonIcon, null))),\r\n        react_1.default.createElement(\"div\", { className: userBlock_scss_1.default.username },\r\n            react_1.default.createElement(Break_1.Break, { size: 12 }),\r\n            react_1.default.createElement(Text_1.Text, { size: 20, color: username ? Text_1.EColor.black : Text_1.EColor.gray99 }, username || \"Anonimous\"))));\r\n}\r\nexports.default = UserBlock;\r\n\n\n//# sourceURL=webpack:///./src/shared/Header/SearcBlock/UserBlock/UserBlock.tsx?");
+
+/***/ }),
+
+/***/ "./src/shared/Header/SearcBlock/UserBlock/userBlock.scss":
+/*!***************************************************************!*\
+  !*** ./src/shared/Header/SearcBlock/UserBlock/userBlock.scss ***!
+  \***************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("var api = __webpack_require__(/*! ../../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ \"./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js\");\n            var content = __webpack_require__(/*! !../../../../../node_modules/css-loader/dist/cjs.js??ref--5-1!../../../../../node_modules/sass-loader/dist/cjs.js!./userBlock.scss */ \"./node_modules/css-loader/dist/cjs.js?!./node_modules/sass-loader/dist/cjs.js!./src/shared/Header/SearcBlock/UserBlock/userBlock.scss\");\n\n            content = content.__esModule ? content.default : content;\n\n            if (typeof content === 'string') {\n              content = [[module.i, content, '']];\n            }\n\nvar options = {};\n\noptions.insert = \"head\";\noptions.singleton = false;\n\nvar update = api(content, options);\n\nvar exported = content.locals ? content.locals : {};\n\n\nif (true) {\n  if (!content.locals) {\n    module.hot.accept(\n      /*! !../../../../../node_modules/css-loader/dist/cjs.js??ref--5-1!../../../../../node_modules/sass-loader/dist/cjs.js!./userBlock.scss */ \"./node_modules/css-loader/dist/cjs.js?!./node_modules/sass-loader/dist/cjs.js!./src/shared/Header/SearcBlock/UserBlock/userBlock.scss\",\n      function () {\n        var newContent = __webpack_require__(/*! !../../../../../node_modules/css-loader/dist/cjs.js??ref--5-1!../../../../../node_modules/sass-loader/dist/cjs.js!./userBlock.scss */ \"./node_modules/css-loader/dist/cjs.js?!./node_modules/sass-loader/dist/cjs.js!./src/shared/Header/SearcBlock/UserBlock/userBlock.scss\");\n\n              newContent = newContent.__esModule ? newContent.default : newContent;\n\n              if (typeof newContent === 'string') {\n                newContent = [[module.i, newContent, '']];\n              }\n\n              update(newContent);\n      }\n    )\n  }\n\n  module.hot.dispose(function() { \n    update();\n  });\n}\n\nmodule.exports = exported;\n\n//# sourceURL=webpack:///./src/shared/Header/SearcBlock/UserBlock/userBlock.scss?");
 
 /***/ }),
 
@@ -2039,6 +2119,18 @@ eval("\r\nvar __createBinding = (this && this.__createBinding) || (Object.create
 
 /***/ }),
 
+/***/ "./src/shared/Icons/AnonIcon.tsx":
+/*!***************************************!*\
+  !*** ./src/shared/Icons/AnonIcon.tsx ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\r\nvar __importDefault = (this && this.__importDefault) || function (mod) {\r\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\r\n};\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nexports.AnonIcon = void 0;\r\nvar react_1 = __importDefault(__webpack_require__(/*! react */ \"./node_modules/react/index.js\"));\r\nfunction AnonIcon() {\r\n    return (react_1.default.createElement(\"svg\", { width: \"50\", height: \"50\", viewBox: \"0 0 50 50\", fill: \"none\", xmlns: \"http://www.w3.org/2000/svg\" },\r\n        react_1.default.createElement(\"path\", { d: \"M25 0C11.2 0 0 11.2 0 25C0 38.8 11.2 50 25 50C38.8 50 50 38.8 50 25C50 11.2 38.8 0 25 0ZM25 7.5C29.15 7.5 32.5 10.85 32.5 15C32.5 19.15 29.15 22.5 25 22.5C20.85 22.5 17.5 19.15 17.5 15C17.5 10.85 20.85 7.5 25 7.5ZM25 43C18.75 43 13.225 39.8 10 34.95C10.075 29.975 20 27.25 25 27.25C29.975 27.25 39.925 29.975 40 34.95C36.775 39.8 31.25 43 25 43Z\", fill: \"#D9D9D9\" })));\r\n}\r\nexports.AnonIcon = AnonIcon;\r\n\n\n//# sourceURL=webpack:///./src/shared/Icons/AnonIcon.tsx?");
+
+/***/ }),
+
 /***/ "./src/shared/Icons/BlockIcon.tsx":
 /*!****************************************!*\
   !*** ./src/shared/Icons/BlockIcon.tsx ***!
@@ -2072,6 +2164,18 @@ eval("\r\nvar __importDefault = (this && this.__importDefault) || function (mod)
 
 "use strict";
 eval("\r\nvar __importDefault = (this && this.__importDefault) || function (mod) {\r\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\r\n};\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nvar react_1 = __importDefault(__webpack_require__(/*! react */ \"./node_modules/react/index.js\"));\r\nfunction WarningIcon() {\r\n    return (react_1.default.createElement(\"svg\", { width: \"14\", height: \"12\", viewBox: \"0 0 14 12\", fill: \"none\", xmlns: \"http://www.w3.org/2000/svg\" },\r\n        react_1.default.createElement(\"path\", { d: \"M0 12H14L7 0L0 12ZM7.63636 10.1053H6.36364V8.8421H7.63636V10.1053ZM7.63636 7.57895H6.36364V5.05263H7.63636V7.57895Z\", fill: \"#999999\" })));\r\n}\r\nexports.default = WarningIcon;\r\n\n\n//# sourceURL=webpack:///./src/shared/Icons/WarningIcon.tsx?");
+
+/***/ }),
+
+/***/ "./src/shared/Icons/index.ts":
+/*!***********************************!*\
+  !*** ./src/shared/Icons/index.ts ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\r\nvar __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {\r\n    if (k2 === undefined) k2 = k;\r\n    var desc = Object.getOwnPropertyDescriptor(m, k);\r\n    if (!desc || (\"get\" in desc ? !m.__esModule : desc.writable || desc.configurable)) {\r\n      desc = { enumerable: true, get: function() { return m[k]; } };\r\n    }\r\n    Object.defineProperty(o, k2, desc);\r\n}) : (function(o, m, k, k2) {\r\n    if (k2 === undefined) k2 = k;\r\n    o[k2] = m[k];\r\n}));\r\nvar __exportStar = (this && this.__exportStar) || function(m, exports) {\r\n    for (var p in m) if (p !== \"default\" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);\r\n};\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\n__exportStar(__webpack_require__(/*! ./MenuIcon */ \"./src/shared/Icons/MenuIcon.tsx\"), exports);\r\n__exportStar(__webpack_require__(/*! ./BlockIcon */ \"./src/shared/Icons/BlockIcon.tsx\"), exports);\r\n__exportStar(__webpack_require__(/*! ./WarningIcon */ \"./src/shared/Icons/WarningIcon.tsx\"), exports);\r\n__exportStar(__webpack_require__(/*! ./AnonIcon */ \"./src/shared/Icons/AnonIcon.tsx\"), exports);\r\n\n\n//# sourceURL=webpack:///./src/shared/Icons/index.ts?");
 
 /***/ }),
 

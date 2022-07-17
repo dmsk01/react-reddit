@@ -16,7 +16,7 @@ interface IBreakProps {
   top?: boolean;
 }
 
-function Break(props: IBreakProps) {
+export function Break(props: IBreakProps) {
   const {
     size,
     inline = false,
@@ -35,10 +35,6 @@ function Break(props: IBreakProps) {
         { [styles.inline]: inline },
         { [styles.top]: top }
       )}
-    >
-      Break
-    </div>
+    ></div>
   );
 }
-
-export default Break;
