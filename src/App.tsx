@@ -7,12 +7,15 @@ import { CardsList } from "./shared/CardsList";
 
 import "./main.global.scss";
 import { EIcons, Icon } from "./shared/Icon";
+import { useToken } from "./hooks/useToken";
 
 function AppComponent() {
+  const [token] = useToken();
+
   return (
     <div>
       <Layout>
-        <Header />
+        <Header token={token}/>
         <Content>
           <CardsList />
           <Icon name={EIcons.warning} />

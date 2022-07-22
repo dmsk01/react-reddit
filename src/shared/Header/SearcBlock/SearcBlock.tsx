@@ -1,11 +1,17 @@
 import React from "react";
-import styles from "./searcblock.scss";
+import { useUserData } from "../../../hooks/useUserData";
 import UserBlock from "./UserBlock/UserBlock";
+import styles from "./searcblock.scss";
 
-export function SearcBlock() {
+interface ISearcBlockProps {
+  token: string;
+}
+
+export function SearcBlock({ token }: ISearcBlockProps) {
+  const [data] = useUserData(token);
   return (
     <div className={styles.searchBlock}>
-      <UserBlock />
+      <UserBlock avatarSrc={data.iconImg} username={data.name} />
     </div>
   );
 }
