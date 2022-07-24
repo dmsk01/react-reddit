@@ -12,6 +12,9 @@ button {
   padding: 20px 20px 10px;
   display: flex;
   flex-flow: row wrap;
+  &:not(:last-child) {
+    margin-bottom: 20px;
+  }
 }
 .textContent > * {
   flex: 1 1 100%;

@@ -6,7 +6,7 @@
   "scripts": {
     "build:dev": "env NODE_ENV=development webpack --config webpack.config.js",
     "build:prod": "env NODE_ENV=production webpack --config webpack.config.js",
-    "dev": "env NODE_ENV=development CLIENT_ID=FrAoxulM3-8J2as0O2ePdg SECRET=GqECpUP5k6eZuJatFhgKoM1YoUpznQ node ./bin/dev.js",
+    "dev": "env NODE_ENV=development CLIENT_ID=FrAoxulM3-8J2as0O2ePdg node ./bin/dev.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",

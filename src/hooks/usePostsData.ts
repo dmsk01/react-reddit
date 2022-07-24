@@ -3,22 +3,24 @@ import { tokenContext } from '../shared/context/tokenContext';
 import axios from "axios";
 
 export interface ISkillRanking {
-  icon_img: string;
-  banner_img: string;
+  icon_img?: string;
+  banner_img?: string;
 }
 
 interface IPostObject {
-  data: IPostData
+  data?: IPostData
 }
 
 export interface IPostData {
-  title: string,
-  url: string,
-  author: string,
-  created: string,
-  ups: number,
-  downs: number,
-  sr_detail: ISkillRanking,
+  title?: string,
+  url?: string,
+  author?: string,
+  created?: string,
+  ups?: number,
+  downs?: number,
+  icon_img?: string,
+  banner_img?: string
+  sr_detail?: ISkillRanking,
 }
 
 export function usePostsData() {
@@ -34,21 +36,22 @@ export function usePostsData() {
         },
       })
       .then((resp) => {
+        console.log(resp.data.data.children);
         const recievedPosts = resp.data.data.children.map(({ data }: IPostObject) => {
           return {
-            title: data.title,
-            url: data.url,
-            author: data.author,
-            created: data.created,
-            ups: data.ups,
-            downs: data.downs,
-            icon_img: data.sr_detail.icon_img,
-            banner_img: data.sr_detail.banner_img
+            title: data!.title,
+            url: data!.url,
+            author: data!.author,
+            created: data!.created,
+            ups: data!.ups,
+            downs: data!.downs,
+            icon_img: data!.sr_detail!.icon_img,
+            banner_img: data!.sr_detail!.banner_img
           }
         });
         setPostsData(recievedPosts);
       })
-      .catch(console.log);
+      .catch(console.log)
   }, [token]);
 
   return [postsData];
