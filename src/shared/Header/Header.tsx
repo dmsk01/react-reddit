@@ -4,14 +4,10 @@ import { SearcBlock } from "./SearcBlock";
 import { SortBlock } from "./SortBlock";
 import { TreadTitle } from "./TreadTitle";
 
-interface IHeaderProps {
-  token: string;
-}
-
-export function Header({ token }: IHeaderProps) {
+export function Header() {
   return (
     <header className={styles.header}>
-      <SearcBlock token={token} />
+      <SearcBlock />
       <TreadTitle />
       <SortBlock />
     </header>

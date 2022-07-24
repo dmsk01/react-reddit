@@ -1,17 +1,13 @@
-import React from "react";
-import { useUserData } from "../../../hooks/useUserData";
+import React, { useContext } from "react";
 import UserBlock from "./UserBlock/UserBlock";
 import styles from "./searcblock.scss";
+import { userContext } from "../../context/userContext";
 
-interface ISearcBlockProps {
-  token: string;
-}
-
-export function SearcBlock({ token }: ISearcBlockProps) {
-  const [data] = useUserData(token);
+export function SearcBlock() {
+  const { iconImg, name } = useContext(userContext);
   return (
     <div className={styles.searchBlock}>
-      <UserBlock avatarSrc={data.iconImg} username={data.name} />
+      <UserBlock avatarSrc={iconImg} username={name} />
     </div>
   );
 }

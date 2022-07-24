@@ -8,20 +8,31 @@ import { CardsList } from "./shared/CardsList";
 import "./main.global.scss";
 import { EIcons, Icon } from "./shared/Icon";
 import { useToken } from "./hooks/useToken";
+import { tokenContext } from "./shared/context/tokenContext";
+import { UserContextProvider } from "./shared/context/userContext";
+import { usePostsData } from "./hooks/usePostsData";
+import {
+  postsContext,
+  PostsContextProvider,
+} from "./shared/context/postsContext";
 
 function AppComponent() {
   const [token] = useToken();
 
   return (
-    <div>
-      <Layout>
-        <Header token={token}/>
-        <Content>
-          <CardsList />
-          <Icon name={EIcons.warning} />
-        </Content>
-      </Layout>
-    </div>
+    <tokenContext.Provider value={token}>
+      <UserContextProvider>
+        <Layout>
+          <Header />
+          <Content>
+            <PostsContextProvider>
+              <CardsList />
+            </PostsContextProvider>
+            <Icon name={EIcons.warning} />
+          </Content>
+        </Layout>
+      </UserContextProvider>
+    </tokenContext.Provider>
   );
 }
 

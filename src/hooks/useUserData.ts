@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+import { tokenContext } from '../shared/context/tokenContext';
 import axios from "axios";
 
 interface IUserData {
@@ -6,24 +7,23 @@ interface IUserData {
   iconImg?: string;
 }
 
-export function useUserData(token: string) {
+export function useUserData() {
+  const token = useContext(tokenContext);
+
   const [data, setData] = useState<IUserData>({});
+
   useEffect(() => {
-    if (token && token.length > 0 && token != undefined) {
-      axios
-        .get("https://oauth.reddit.com/api/v1/me", {
-          headers: {
-            Authorization: "bearer " + token,
-          },
-        })
-        .then((resp) => {
-          const userData = resp.data;
-          setData({ name: userData.name, iconImg: userData.snoovatar_img });
-        })
-        .catch(console.log);
-    } else {
-      console.log("Not logged in yet");
-    }
+    axios
+      .get("https://oauth.reddit.com/api/v1/me", {
+        headers: {
+          Authorization: "bearer " + token,
+        },
+      })
+      .then((resp) => {
+        const userData = resp.data;
+        setData({ name: userData.name, iconImg: userData.snoovatar_img });
+      })
+      .catch(console.log);
   }, [token]);
 
   return [data];
