@@ -1,12 +1,22 @@
 import React from "react";
+import Title from "../Title/Title";
 import styles from "./textcontent.scss";
 
 interface ITextContent {
   title?: string;
   author?: string;
-  created?: string;
+  created?: number;
   icon_img?: string;
   url?: string;
+}
+
+function timestampToDate(timestamp: number) {
+  const date = new Date(timestamp * 1000).toISOString().split("T")[0];
+  // const year = date.getFullYear();
+  // let month = date.getMonth() + 1;
+  // const day = date.getDay() + 1;
+  // return `${day} ${month} ${year}`;
+  return date;
 }
 
 export function TextContent({
@@ -34,14 +44,10 @@ export function TextContent({
         </div>
         <span className={styles.createdAt}>
           <span className={styles.publishedLabel}>опубликовано </span>
-          {created && created}
+          {created && timestampToDate(created)}
         </span>
       </div>
-      <h2 className={styles.title}>
-        <a href={url} className={styles.postLink}>
-          {title && title}
-        </a>
-      </h2>
+      <Title title={title} url={url} />
     </div>
   );
 }

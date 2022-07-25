@@ -15,7 +15,7 @@ export interface IPostData {
   title?: string,
   url?: string,
   author?: string,
-  created?: string,
+  created?: number,
   ups?: number,
   downs?: number,
   icon_img?: string,

@@ -15,7 +15,7 @@ export function CardsList() {
           title={post?.title}
           author={post?.author}
           url={post?.url}
-          created={post?.url}
+          created={post?.created}
           ups={post?.ups}
           downs={post?.downs}
           icon_img={post?.icon_img}
