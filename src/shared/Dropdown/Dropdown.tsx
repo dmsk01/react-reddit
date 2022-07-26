@@ -35,6 +35,24 @@ export function Dropdown({
     isDropdownOpen ? onOpen() : onClose();
   }, [isDropdownOpen]);
 
+  useEffect(() => {
+    function handleOutsideClick(event: MouseEvent) {
+      if (
+        event.target instanceof Node &&
+        !dropdownContentRef.current?.contains(event.target) &&
+        !btnRef.current?.contains(event.target)
+      ) {
+        setIsDropdownOpen(false);
+      }
+    }
+
+    document.addEventListener("click", (e) => handleOutsideClick(e));
+
+    return () => {
+      document.removeEventListener("click", (e) => handleOutsideClick(e));
+    };
+  }, []);
+
   const handleOpen = () => {
     if (isOpen === undefined) {
       setIsDropdownOpen(!isDropdownOpen);
