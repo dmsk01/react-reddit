@@ -36,7 +36,6 @@ export function usePostsData() {
         },
       })
       .then((resp) => {
-        console.log(resp.data.data.children);
         const recievedPosts = resp.data.data.children.map(({ data }: IPostObject) => {
           return {
             title: data!.title,

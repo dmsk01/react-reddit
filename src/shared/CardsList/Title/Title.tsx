@@ -24,7 +24,13 @@ function Title({ title, url }: ITitleProps) {
       >
         {title && title}
       </a>
-      {isModalOpened && <Post />}
+      {isModalOpened && (
+        <Post
+          onClose={() => {
+            setIsModalOpened(false);
+          }}
+        />
+      )}
     </h2>
   );
 }

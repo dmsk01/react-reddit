@@ -18,7 +18,7 @@ function MenuItemsList({ postId }: IMenuItemsListProps) {
           Hide
         </Text>
       </li>
-      <div className={styles.divider}></div>
+      <li className={styles.divider}></li>
       <li className={styles.menuItem}>
         <WarningIcon />
         <Text size={12} color={EColor.gray99}>

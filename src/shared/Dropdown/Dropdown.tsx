@@ -1,4 +1,5 @@
-import React from "react";
+import React, { MouseEventHandler, useEffect, useRef, useState } from "react";
+import ReactDOM from "react-dom";
 import styles from "./dropdown.scss";
 
 interface IDropdownProps {
@@ -18,13 +19,19 @@ export function Dropdown({
   onOpen = NOOP,
   onClose = NOOP,
 }: IDropdownProps) {
-  const [isDropdownOpen, setIsDropdownOpen] = React.useState(isOpen);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(isOpen);
 
-  React.useEffect(() => {
+  const btnRef = useRef<HTMLDivElement>(null);
+  const btnRefRect = btnRef.current?.getBoundingClientRect();
+  const dropdownContentRef = useRef<HTMLDivElement>(null);
+  const node = document.getElementById("dropdown_root");
+  if (!node) return null;
+
+  useEffect(() => {
     setIsDropdownOpen(isOpen);
   }, [isOpen]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     isDropdownOpen ? onOpen() : onClose();
   }, [isDropdownOpen]);
 
@@ -35,15 +42,37 @@ export function Dropdown({
   };
 
   return (
-    <div className={styles.container}>
+    <div className={styles.container} ref={btnRef}>
       <div onClick={handleOpen}>{button}</div>
-      {isDropdownOpen && (
-        <div className={styles.listContainer}>
-          <div className={styles.list} onClick={() => setIsDropdownOpen(false)}>
-            {children}
-          </div>
-        </div>
-      )}
+      {isDropdownOpen &&
+        ReactDOM.createPortal(
+          <div
+            ref={dropdownContentRef}
+            className={styles.listContainer}
+            style={{
+              top:
+                Math.round(
+                  btnRefRect
+                    ? btnRefRect.top + btnRefRect?.height + window.scrollY
+                    : 0
+                ) + "px",
+              left:
+                Math.round(
+                  btnRefRect
+                    ? btnRefRect.left + btnRefRect?.width / 2 + window.scrollX
+                    : 0
+                ) + "px",
+            }}
+          >
+            <div
+              className={styles.list}
+              onClick={() => setIsDropdownOpen(false)}
+            >
+              {children}
+            </div>
+          </div>,
+          node
+        )}
     </div>
   );
 }
