@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import styles from "./dropdown.scss";
 
 interface IDropdownProps {
-  button: React.ReactNode;
+  button?: React.ReactNode;
   children: React.ReactNode;
   isOpen?: boolean;
   onOpen?: () => void;
@@ -12,13 +12,7 @@ interface IDropdownProps {
 
 const NOOP = () => {};
 
-export function Dropdown({
-  button,
-  children,
-  isOpen,
-  onOpen = NOOP,
-  onClose = NOOP,
-}: IDropdownProps) {
+export function Dropdown({ button = "button", children, isOpen, onOpen = NOOP, onClose = NOOP }: IDropdownProps) {
   const [isDropdownOpen, setIsDropdownOpen] = useState(isOpen);
 
   const btnRef = useRef<HTMLDivElement>(null);
@@ -37,11 +31,7 @@ export function Dropdown({
 
   useEffect(() => {
     function handleOutsideClick(event: MouseEvent) {
-      if (
-        event.target instanceof Node &&
-        !dropdownContentRef.current?.contains(event.target) &&
-        !btnRef.current?.contains(event.target)
-      ) {
+      if (event.target instanceof Node && !dropdownContentRef.current?.contains(event.target) && !btnRef.current?.contains(event.target)) {
         setIsDropdownOpen(false);
       }
     }
@@ -68,24 +58,11 @@ export function Dropdown({
             ref={dropdownContentRef}
             className={styles.listContainer}
             style={{
-              top:
-                Math.round(
-                  btnRefRect
-                    ? btnRefRect.top + btnRefRect?.height + window.scrollY
-                    : 0
-                ) + "px",
-              left:
-                Math.round(
-                  btnRefRect
-                    ? btnRefRect.left + btnRefRect?.width / 2 + window.scrollX
-                    : 0
-                ) + "px",
+              top: Math.round(btnRefRect ? btnRefRect.top + btnRefRect?.height + window.scrollY : 0) + "px",
+              left: Math.round(btnRefRect ? btnRefRect.left + btnRefRect?.width / 2 + window.scrollX : 0) + "px",
             }}
           >
-            <div
-              className={styles.list}
-              onClick={() => setIsDropdownOpen(false)}
-            >
+            <div className={styles.list} onClick={() => setIsDropdownOpen(false)}>
               {children}
             </div>
           </div>,
