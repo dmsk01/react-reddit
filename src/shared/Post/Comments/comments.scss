@@ -47,3 +47,22 @@
   background: var(--greyD9);
   color: var(--black);
 }
+
+.commentFooter {
+  display: flex;
+  align-items: center;
+}
+
+.commentAction {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  line-height: 16px;
+  color: var(--grey99);
+  &:not(:last-child) {
+    margin-right: 25px;
+  }
+  & > *:first-child {
+    margin-right: 5px;
+  }
+}

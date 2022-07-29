@@ -28,7 +28,7 @@ function Actions({ comments = 22, vote = 54 }: IActionsProps) {
         <SaveIcon /> Save
       </li>
       <li className={styles.actionsItem}>
-        <WarningIcon /> Complain
+        <WarningIcon /> Report
       </li>
       <li className={styles.actionsItem}>{vote}% Voted</li>
     </ul>
