@@ -1,9 +1,6 @@
 import React, { useState } from "react";
 import { hot } from "react-hot-loader/root";
-import { Content } from "./shared/Content";
-import { Header } from "./shared/Header";
-import { Layout } from "./shared/Layout";
-import { CardsList } from "./shared/CardsList";
+import { Content, Header, CardsList, Layout } from "./shared/components";
 
 import "./main.global.scss";
 
@@ -21,9 +18,7 @@ function AppComponent() {
   const CommentProvider = commentContext.Provider;
   return (
     <tokenContext.Provider value={token}>
-      <CommentProvider
-        value={{ value: commentValue, onChange: setCommentValue }}
-      >
+      <CommentProvider value={{ value: commentValue, onChange: setCommentValue }}>
         <UserContextProvider>
           <Layout>
             <Header />
@@ -31,7 +26,6 @@ function AppComponent() {
               <PostsContextProvider>
                 <CardsList />
               </PostsContextProvider>
-              <Icon name={EIcons.warning} />
             </Content>
           </Layout>
         </UserContextProvider>

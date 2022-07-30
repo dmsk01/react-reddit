@@ -12,6 +12,8 @@ interface IPostObject {
 }
 
 export interface IPostData {
+  id?: string;
+  subreddit?: string;
   title?: string;
   url?: string;
   author?: string;
@@ -37,29 +39,27 @@ export function usePostsData() {
       })
       .then((resp) => {
         console.log(resp.data.data.children);
-        const recievedPosts = resp.data.data.children.map(({ data }: IPostObject) => {
-          return {
-            title: data!.title,
-            url: data!.url,
-            author: data!.author,
-            created: data!.created,
-            ups: data!.ups,
-            downs: data!.downs,
-            icon_img: data!.sr_detail!.icon_img,
-            banner_img: data!.sr_detail!.banner_img,
-          };
-        });
+        const recievedPosts = resp.data.data.children.map(({ data }: IPostObject) => ({
+          title: data!.title,
+          url: data!.url,
+          author: data!.author,
+          created: data!.created,
+          ups: data!.ups,
+          downs: data!.downs,
+          icon_img: data!.sr_detail!.icon_img,
+          banner_img: data!.sr_detail!.banner_img,
+          id: data!.id,
+          subreddit: data!.subreddit,
+        }));
         setPostsData(recievedPosts);
       })
       .catch(console.log);
   }
 
   useEffect(() => {
-    // if (token === "undefined" || token === "" || token.length == 0) return;
     getPostData(token);
   }, [token]);
 
   return [postsData];
 }
 
-// https://oauth.reddit.com/${subreddit}/comments/${postId}

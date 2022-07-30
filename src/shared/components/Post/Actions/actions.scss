@@ -1,0 +1,25 @@
+.actionsList {
+  display: flex;
+  align-items: center;
+  padding: 15px 0;
+  color: #999;
+}
+
+.actionsItem {
+  button {
+    display: flex;
+    align-items: center;
+    color: inherit;
+    & > *:first-child {
+      margin-right: 5px;
+    }
+  }
+}
+
+.actionsItem:not(:last-child) {
+  margin-right: 30px;
+}
+
+.actionsItem:last-child {
+  margin-left: auto;
+}
