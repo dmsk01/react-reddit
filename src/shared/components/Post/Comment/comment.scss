@@ -1,3 +1,12 @@
+.commentsCard {
+  display: flex;
+  align-items: flex-start;
+
+  &>*:first-child {
+    margin-right: 20px;
+  }
+}
+
 .commentHeader {
   display: flex;
   align-items: center;
@@ -32,13 +41,16 @@
   font-size: 14px;
   line-height: 16px;
   color: var(--grey99);
+
   &:not(:last-child) {
     margin-right: 25px;
   }
-  & > *:first-child {
+
+  &>*:first-child {
     margin-right: 5px;
   }
 }
+
 .commentHeader {
   display: flex;
   align-items: center;
@@ -65,13 +77,15 @@
 .commentFooter {
   display: flex;
   align-items: center;
+
   li {
     &:not(:last-child) {
-    margin-right: 25px;
-  }
-  & > *:first-child {
-    margin-right: 5px;
-  }
+      margin-right: 25px;
+    }
+
+    &>*:first-child {
+      margin-right: 5px;
+    }
   }
 }
 
@@ -81,5 +95,5 @@
   font-size: 14px;
   line-height: 16px;
   color: var(--grey99);
-  
+
 }

@@ -4,27 +4,23 @@ import axios from "axios";
 
 export interface IPostComments {}
 
-export function useCommentsData() {
+export function useCommentsData(id?: string) {
   const token = useContext(tokenContext);
 
   const [postComments, setPostsComments] = useState<IPostComments[]>([]);
 
-  function getPostComments(id: string, subreddit: string) {
+  useEffect(() => {
     axios
-      .get(`https://oauth.reddit.com/${subreddit}/comments/${id}`, {
+      .get(`https://oauth.reddit.com/comments/${id}`, {
         headers: {
           Authorization: "bearer " + token,
         },
       })
-      .then((resp) => {})
+      .then((resp) => {
+        console.log("[useCommentsData]", resp.data);
+      })
       .catch(console.log);
-  }
-
-  useEffect(() => {
-    // getPostComments();
   }, [token]);
 
   return [postComments];
 }
-
-// https://oauth.reddit.com/${subreddit}/comments/${postId}

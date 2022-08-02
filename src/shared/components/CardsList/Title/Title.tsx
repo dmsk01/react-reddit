@@ -6,9 +6,10 @@ import styles from "./title.scss";
 interface ITitleProps {
   title?: string;
   url?: string;
+  id?: string;
 }
 
-function Title({ title, url }: ITitleProps) {
+function Title({ title, url,id }: ITitleProps) {
   const [isModalOpened, setIsModalOpened] = useState(false);
   return (
     <h2 className={styles.title} onClick={() => console.log("header card clicked")}>
@@ -23,6 +24,7 @@ function Title({ title, url }: ITitleProps) {
       </a>
       {isModalOpened && (
         <Post
+          id={id}
           onClose={() => {
             setIsModalOpened(false);
           }}

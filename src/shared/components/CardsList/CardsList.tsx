@@ -20,6 +20,7 @@ export function CardsList() {
           downs={post?.downs}
           icon_img={post?.icon_img}
           banner_img={post?.banner_img}
+          id={post?.id}
         />
       ))}
     </ul>

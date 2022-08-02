@@ -8,14 +8,15 @@ import styles from "./post.scss";
 
 interface IPostProps {
   onClose?: () => void;
+  id?: string;
 }
 
-export function Post(props: IPostProps) {
+export function Post({ onClose, id }: IPostProps) {
   const ref = useRef<HTMLDivElement>(null);
   useEffect(() => {
     function handleClick(event: MouseEvent) {
       if (event.target instanceof Node && !ref.current?.contains(event.target)) {
-        props.onClose?.();
+        onClose && onClose?.();
       }
     }
 
@@ -44,7 +45,7 @@ export function Post(props: IPostProps) {
         <CommentForm />
       </div>
       <div className={styles.postComments}>
-        <CommentsList />
+        <CommentsList id={id} />
       </div>
     </div>,
     node

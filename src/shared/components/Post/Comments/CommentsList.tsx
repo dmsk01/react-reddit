@@ -5,6 +5,7 @@ import { Comment } from "../Comment";
 import { AngleDownIcon } from "../../Icons";
 
 import styles from "./comments.scss";
+import { useCommentsData } from "../../../../hooks/useCommentsData";
 
 interface ISortButton {
   title: string;
@@ -19,7 +20,12 @@ function SortButton({ title }: ISortButton) {
   );
 }
 
-export function CommentsList() {
+interface ICommentsListProps {
+  id?: string;
+}
+
+export function CommentsList({ id }: ICommentsListProps) {
+  useCommentsData(id);
   return (
     <div>
       <div className={styles.sortBlock}>

@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useContext } from 'react';
-import { tokenContext } from '../shared/context/tokenContext';
+import React, { useState, useEffect, useContext } from "react";
+import { tokenContext } from "../shared/context/tokenContext";
 import axios from "axios";
 
 interface IUserData {
@@ -14,9 +14,9 @@ export function useUserData() {
 
   useEffect(() => {
     axios
-      .get("https://oauth.reddit.com/api/v1/me", {
+      .get("https://oauth.reddit.com/api/v1/me.json", {
         headers: {
-          Authorization: "bearer " + token,
+          Authorization: `bearer ${token}`,
         },
       })
       .then((resp) => {
