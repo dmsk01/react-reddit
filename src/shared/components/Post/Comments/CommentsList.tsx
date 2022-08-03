@@ -22,10 +22,11 @@ function SortButton({ title }: ISortButton) {
 
 interface ICommentsListProps {
   id?: string;
+  subreddit?: string;
 }
 
-export function CommentsList({ id }: ICommentsListProps) {
-  useCommentsData(id);
+export function CommentsList({ id, subreddit }: ICommentsListProps) {
+  // useCommentsData(id,subreddit);
   return (
     <div>
       <div className={styles.sortBlock}>

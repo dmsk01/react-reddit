@@ -12,7 +12,7 @@ export function useUserData() {
 
   const [data, setData] = useState<IUserData>({});
 
-  useEffect(() => {
+  function getUserData() {
     axios
       .get("https://oauth.reddit.com/api/v1/me.json", {
         headers: {
@@ -24,6 +24,12 @@ export function useUserData() {
         setData({ name: userData.name, iconImg: userData.snoovatar_img });
       })
       .catch(console.log);
+  }
+
+  useEffect(() => {
+    if (token !== "" && typeof token !== "undefined") return;
+
+    getUserData();
   }, [token]);
 
   return [data];

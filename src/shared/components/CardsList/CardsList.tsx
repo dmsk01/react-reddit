@@ -21,6 +21,7 @@ export function CardsList() {
           icon_img={post?.icon_img}
           banner_img={post?.banner_img}
           id={post?.id}
+          subreddit={post?.subreddit}
         />
       ))}
     </ul>

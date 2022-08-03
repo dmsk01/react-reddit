@@ -9,6 +9,8 @@ interface ITextContent {
   icon_img?: string;
   url?: string;
   id?: string;
+  selftext?: string;
+  subreddit?: string;
 }
 
 function timestampToDate(timestamp: number) {
@@ -20,7 +22,7 @@ function timestampToDate(timestamp: number) {
   return date;
 }
 
-export function TextContent({ title, author, created, icon_img, url, id }: ITextContent) {
+export function TextContent({ title, author, created, icon_img, url, id, selftext, subreddit }: ITextContent) {
   return (
     <div className={styles.textContent}>
       <div className={styles.metaData}>
@@ -35,7 +37,7 @@ export function TextContent({ title, author, created, icon_img, url, id }: IText
           {created && timestampToDate(created)}
         </span>
       </div>
-      <Title title={title} url={url} id={id} />
+      <Title title={title} url={url} id={id} selftext={selftext} subreddit={subreddit} />
     </div>
   );
 }

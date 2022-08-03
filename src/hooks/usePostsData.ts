@@ -22,7 +22,12 @@ export interface IPostData {
   downs?: number;
   icon_img?: string;
   banner_img?: string;
+  selftext?: string;
   sr_detail?: ISkillRanking;
+}
+
+interface IGetPostDataConfig {
+  [key: string]: string;
 }
 
 export function usePostsData() {
@@ -30,12 +35,25 @@ export function usePostsData() {
 
   const [postsData, setPostsData] = useState<IPostData[]>([]);
 
-  function getPostData(token: string) {
+  let config = {};
+  let url = "";
+  if (token) {
+    url = "https://oauth.reddit.com/best.json?sr_detail=true";
+    config = {
+      Authorization: "bearer " + token,
+      "Content-Type": "application/x-www-form-urlencoded",
+    };
+  } else {
+    url = "https://www.reddit.com/r/redditdev/best.json?sr_detail=true";
+    config = {
+      "Content-Type": "application/x-www-form-urlencoded",
+    };
+  }
+
+  function getPostData(url: string, config: IGetPostDataConfig) {
     axios
-      .get("https://oauth.reddit.com/best.json?limit=10&sr_detail=true", {
-        headers: {
-          Authorization: "bearer " + token,
-        },
+      .get(url, {
+        headers: config,
       })
       .then((resp) => {
         const recievedPosts = resp.data.data.children.map(({ data }: IPostObject) => ({
@@ -49,6 +67,7 @@ export function usePostsData() {
           banner_img: data!.sr_detail!.banner_img,
           id: data!.id,
           subreddit: data!.subreddit,
+          selftext: data!.selftext,
         }));
         setPostsData(recievedPosts);
       })
@@ -56,7 +75,9 @@ export function usePostsData() {
   }
 
   useEffect(() => {
-    getPostData(token);
+    if (token !== "" && typeof token !== "undefined") return;
+
+    getPostData(url, config);
   }, [token]);
 
   return [postsData];

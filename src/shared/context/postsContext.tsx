@@ -3,6 +3,7 @@ import { usePostsData } from "../../hooks/usePostsData";
 
 export interface IPostsContextData {
   id?: string;
+  subreddit?: string;
   title?: string;
   url?: string;
   author?: string;
@@ -11,6 +12,7 @@ export interface IPostsContextData {
   downs?: number;
   icon_img?: string;
   banner_img?: string;
+  selftext?: string;
   sr_detail?: {
     icon_img?: string;
     banner_img?: string;

@@ -7,9 +7,11 @@ interface ITitleProps {
   title?: string;
   url?: string;
   id?: string;
+  selftext?: string;
+  subreddit?: string;
 }
 
-function Title({ title, url,id }: ITitleProps) {
+function Title({ title, url,id,selftext,subreddit }: ITitleProps) {
   const [isModalOpened, setIsModalOpened] = useState(false);
   return (
     <h2 className={styles.title} onClick={() => console.log("header card clicked")}>
@@ -25,6 +27,8 @@ function Title({ title, url,id }: ITitleProps) {
       {isModalOpened && (
         <Post
           id={id}
+          selftext={selftext}
+          subreddit={subreddit}
           onClose={() => {
             setIsModalOpened(false);
           }}
