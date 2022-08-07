@@ -25,8 +25,10 @@ interface ICommentsListProps {
   subreddit?: string;
 }
 
-export function CommentsList({ id, subreddit }: ICommentsListProps) {
-  // useCommentsData(id,subreddit);
+export function CommentsList({ id }: ICommentsListProps) {
+  const [postComments] = useCommentsData(id);
+  console.log("[comments list] ", postComments);
+
   return (
     <div>
       <div className={styles.sortBlock}>
@@ -41,7 +43,11 @@ export function CommentsList({ id, subreddit }: ICommentsListProps) {
         </span>
       </div>
       <div className={styles.commentsContainer}>
-        <Comment />
+        {postComments.map((comment) => {
+          console.log(comment.data?.author);
+
+          return <Comment key={comment.data?.id} author={comment.data?.author} body={ comment.data?.body} />;
+        })}
       </div>
     </div>
   );

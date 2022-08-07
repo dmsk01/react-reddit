@@ -19,7 +19,7 @@ export function Dropdown({ button = "button", children, isOpen, onOpen = NOOP, o
   const btnRefRect = btnRef.current?.getBoundingClientRect();
   const dropdownContentRef = useRef<HTMLDivElement>(null);
   const node = document.getElementById("dropdown_root");
-  if (!node) return null;
+  if (!node) return <></>;
 
   useEffect(() => {
     setIsDropdownOpen(isOpen);

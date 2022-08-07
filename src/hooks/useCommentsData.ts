@@ -2,9 +2,21 @@ import React, { useState, useEffect, useContext } from "react";
 import { tokenContext } from "../shared/context/tokenContext";
 import axios from "axios";
 
-export interface IPostComments {}
+interface ICommentData {
+  created?: string | number;
+  id?: string;
+  selftext_html?: string;
+  body?: string;
+  title?: string;
+  author?: string;
+}
 
-export function useCommentsData(id?: string, subreddit?: string) {
+export interface IPostComments {
+  kind?: string;
+  data?: ICommentData;
+}
+
+export function useCommentsData(id?: string) {
   const token = useContext(tokenContext);
 
   const [postComments, setPostsComments] = useState<IPostComments[]>([]);
@@ -12,13 +24,13 @@ export function useCommentsData(id?: string, subreddit?: string) {
   let config = {};
   let url = "";
   if (token) {
-    url = `https://oauth.reddit.com/${subreddit}/comments/${id}`;
+    url = `https://oauth.reddit.com/comments/${id}`;
     config = {
       Authorization: "bearer " + token,
       "Content-Type": "application/x-www-form-urlencoded",
     };
   } else {
-    url = `http://api.reddit.com/${subreddit}/comments/${id}`;
+    url = `http://api.reddit.com/comments/${id}`;
     config = {
       "Content-Type": "application/x-www-form-urlencoded",
     };
@@ -30,7 +42,7 @@ export function useCommentsData(id?: string, subreddit?: string) {
         headers: config,
       })
       .then((resp) => {
-        console.log("[useCommentsData]", resp.data);
+        setPostsComments(resp?.data[1]?.data?.children);
       })
       .catch(console.log);
   }

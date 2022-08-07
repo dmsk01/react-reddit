@@ -13,12 +13,14 @@ interface IPostProps {
   subreddit?: string;
 }
 
-export function Post({ onClose, id, selftext, subreddit }: IPostProps) {
+const NOOP = () => {};
+
+export function Post({ onClose = NOOP, id }: IPostProps) {
   const ref = useRef<HTMLDivElement>(null);
   useEffect(() => {
     function handleClick(event: MouseEvent) {
       if (event.target instanceof Node && !ref.current?.contains(event.target)) {
-        onClose && onClose?.();
+        onClose?.();
       }
     }
 
@@ -36,7 +38,6 @@ export function Post({ onClose, id, selftext, subreddit }: IPostProps) {
     <div className={styles.modal} ref={ref}>
       <h2>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias repellendus ea laborum eius rerum hic inventore. Alias magni cupiditate culpa odit accusamus! Ipsa cum amet officia error, aperiam corrupti consequuntur?</h2>
       <div className={styles.content}>
-        <p>{selftext}</p>
         <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolor illo vero optio! Veniam amet cum ipsa explicabo laborum culpa dicta repellendus, voluptates qui maxime quaerat labore magni perspiciatis, obcaecati sit!</p>
         <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolor illo vero optio! Veniam amet cum ipsa explicabo laborum culpa dicta repellendus, voluptates qui maxime quaerat labore magni perspiciatis, obcaecati sit!</p>
       </div>
@@ -47,7 +48,7 @@ export function Post({ onClose, id, selftext, subreddit }: IPostProps) {
         <CommentForm />
       </div>
       <div className={styles.postComments}>
-        <CommentsList id={id} subreddit={subreddit} />
+        <CommentsList id={id} />
       </div>
     </div>,
     node

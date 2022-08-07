@@ -27,7 +27,7 @@ export function useUserData() {
   }
 
   useEffect(() => {
-    if (token !== "" && typeof token !== "undefined") return;
+    // if (token !== "" && typeof token !== "undefined") return;
 
     getUserData();
   }, [token]);

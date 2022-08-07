@@ -6,7 +6,12 @@ import { CommentIcon, ShareIcon, WarningIcon } from "../../Icons";
 
 import styles from "./comment.scss";
 
-export function Comment() {
+interface ICommentData {
+  author?: string;
+  body?: string;
+}
+
+export function Comment({ author, body }: ICommentData) {
   return (
     <div className={styles.commentsCard}>
       <CarmaCounter />
@@ -14,13 +19,13 @@ export function Comment() {
         <div className={styles.commentHeader}>
           <Avatar />
           <Break size={4} />
-          <span className={styles.commentPersonName}>John Doe</span>
+          <span className={styles.commentPersonName}>{author}</span>
           <Break size={4} />
           <span className={styles.commentCreated}>1 hour ego</span>
           <Break size={4} />
           <span className={styles.commentPersonGroup}>Marvelous leage</span>
         </div>
-        <p className={styles.commentText}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores esse voluptas ut eaque incidunt repellat provident corporis possimus quia illo magni quod deserunt, eum optio est quo velit eveniet adipisci!</p>
+        <p className={styles.commentText}>{body}</p>
         <ul className={styles.commentFooter}>
           <li>
             <button type="button" className={styles.commentAction}>

@@ -4,14 +4,22 @@ import { AgnleBracketsIcon, ALetterIcon, ChangeIcon, CommentsIcon, DocumentIcon,
 
 import styles from "./commentForm.scss";
 
-export function CommentForm() {
+interface ICommentForm {
+  author?: string;
+  comment?: string;
+}
+
+export function CommentForm({ author, comment }: ICommentForm) {
   const { value, onChange } = useContext(commentContext);
   function handleChange(event: ChangeEvent<HTMLTextAreaElement>) {
     onChange && onChange(event.target.value);
   }
   return (
     <form className={styles.form}>
-      <textarea className={styles.input} value={value} onChange={handleChange} placeholder={"Leave your comment here"} />
+      <label className={styles.textareaLabel} htmlFor="#textarea-comment">
+        {`${author}, leave your comment` || "Leave your comment here"}
+      </label>
+      <textarea id="textarea-comment" className={styles.input} value={value} onChange={handleChange} />
       <div className={styles.formBottom}>
         <ul className={styles.actions}>
           <li className={styles.action}>

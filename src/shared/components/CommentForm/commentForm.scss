@@ -1,6 +1,7 @@
 .form {
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 
 .input {
@@ -16,6 +17,15 @@
   line-height: 19px;
   color: #999999;
   resize: none;
+}
+
+.textareaLabel {
+  font-size: 16px;
+  line-height: 19px;
+  color: #999999;
+  position: absolute;
+  top: 17px;
+  left: 20px;
 }
 
 .input[aria-invalid] {
@@ -68,9 +78,11 @@
     justify-content: flex-start;
     margin-bottom: 20px;
   }
+
   .action {
     margin-bottom: 20px;
   }
+
   .formBottom {
     flex-direction: column;
   }

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import {Post} from "../..";
+import { Post } from "../..";
 
 import styles from "./title.scss";
 
@@ -11,7 +11,7 @@ interface ITitleProps {
   subreddit?: string;
 }
 
-function Title({ title, url,id,selftext,subreddit }: ITitleProps) {
+function Title({ title, url, id }: ITitleProps) {
   const [isModalOpened, setIsModalOpened] = useState(false);
   return (
     <h2 className={styles.title} onClick={() => console.log("header card clicked")}>
@@ -27,8 +27,6 @@ function Title({ title, url,id,selftext,subreddit }: ITitleProps) {
       {isModalOpened && (
         <Post
           id={id}
-          selftext={selftext}
-          subreddit={subreddit}
           onClose={() => {
             setIsModalOpened(false);
           }}
