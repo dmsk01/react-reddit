@@ -3,7 +3,7 @@ import { tokenContext } from "../shared/context/tokenContext";
 import axios from "axios";
 
 interface ICommentData {
-  created?: string | number;
+  created?: number;
   id?: string;
   selftext_html?: string;
   body?: string;

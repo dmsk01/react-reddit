@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useContext } from "react";
+import React, { ChangeEvent, useContext, useEffect, useRef } from "react";
 import { commentContext } from "../../context/commentContext";
 import { AgnleBracketsIcon, ALetterIcon, ChangeIcon, CommentsIcon, DocumentIcon, DownloadIcon, LinkIcon, PDFIcon, PenIcon, PersonIcon, PictureIcon, RecordIcon } from "../Icons";
 
@@ -10,16 +10,25 @@ interface ICommentForm {
 }
 
 export function CommentForm({ author, comment }: ICommentForm) {
+  const ref = useRef<HTMLTextAreaElement>(null);
   const { value, onChange } = useContext(commentContext);
+
+  useEffect(() => {
+    ref?.current?.focus();
+  }, []);
   function handleChange(event: ChangeEvent<HTMLTextAreaElement>) {
     onChange && onChange(event.target.value);
   }
   return (
     <form className={styles.form}>
-      <label className={styles.textareaLabel} htmlFor="#textarea-comment">
-        {`${author}, leave your comment` || "Leave your comment here"}
-      </label>
-      <textarea id="textarea-comment" className={styles.input} value={value} onChange={handleChange} />
+      <textarea ref={ref} id="textarea" className={styles.input} value={value} onChange={handleChange} />
+      {!value && (
+        <label className={styles.textareaLabel} htmlFor="#textarea">
+          <span>{author && author + ", "}</span>
+          leave your comment
+        </label>
+      )}
+
       <div className={styles.formBottom}>
         <ul className={styles.actions}>
           <li className={styles.action}>

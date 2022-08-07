@@ -5,6 +5,7 @@
 }
 
 .input {
+  box-sizing: border-box;
   height: 89px;
   border: 1px solid #d9d9d9;
   padding: 16px;
@@ -17,7 +18,14 @@
   line-height: 19px;
   color: #999999;
   resize: none;
+
+  &:focus {
+    outline: none;
+    border: 2px solid #cc6633;
+  }
 }
+
+
 
 .textareaLabel {
   font-size: 16px;
@@ -26,6 +34,12 @@
   position: absolute;
   top: 17px;
   left: 20px;
+  z-index: 1;
+  pointer-events: none;
+
+  span {
+    color: #cc6633
+  }
 }
 
 .input[aria-invalid] {

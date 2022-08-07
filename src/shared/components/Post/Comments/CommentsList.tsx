@@ -46,7 +46,7 @@ export function CommentsList({ id }: ICommentsListProps) {
         {postComments.map((comment) => {
           console.log(comment.data?.author);
 
-          return <Comment key={comment.data?.id} author={comment.data?.author} body={ comment.data?.body} />;
+          return <Comment key={comment.data?.id} author={comment.data?.author} body={comment.data?.body} created={comment.data?.created} />;
         })}
       </div>
     </div>
