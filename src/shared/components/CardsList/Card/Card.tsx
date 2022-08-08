@@ -8,10 +8,10 @@ import { TextContent } from "../TextContent";
 import styles from "./card.scss";
 
 export function Card(props: IPostData) {
-  const { title, url, author, created, ups, downs, icon_img, banner_img, id, selftext, subreddit } = props;
+  const { title, url, author, created, ups, downs, icon_img, banner_img, id, selftext, subreddit, upvote_ratio } = props;
   return (
     <li className={styles.card}>
-      <TextContent title={title} icon_img={icon_img} author={author} created={created} url={url} id={id} selftext={selftext} subreddit={subreddit} />
+      <TextContent title={title} icon_img={icon_img} author={author} created={created} url={url} id={id} selftext={selftext} subreddit={subreddit} upvote_ratio={upvote_ratio} />
       <Preview banner_img={banner_img} />
       <Menu />
       <Controls ups={ups} downs={downs} />

@@ -10,19 +10,7 @@ export function CardsList() {
   return (
     <ul className={styles.cardsList}>
       {posts.map((post) => (
-        <Card
-          key={post!.title}
-          title={post?.title}
-          author={post?.author}
-          url={post?.url}
-          created={post?.created}
-          ups={post?.ups}
-          downs={post?.downs}
-          icon_img={post?.icon_img}
-          banner_img={post?.banner_img}
-          id={post?.id}
-          subreddit={post?.subreddit}
-        />
+        <Card key={post?.title} title={post?.title} author={post?.author} url={post?.url} created={post?.created} ups={post?.ups} downs={post?.downs} icon_img={post?.icon_img} banner_img={post?.banner_img} id={post?.id} subreddit={post?.subreddit} selftext={post?.selftext} upvote_ratio={post?.upvote_ratio} />
       ))}
     </ul>
   );

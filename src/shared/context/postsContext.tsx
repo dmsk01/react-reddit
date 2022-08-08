@@ -13,6 +13,7 @@ export interface IPostsContextData {
   icon_img?: string;
   banner_img?: string;
   selftext?: string;
+  upvote_ratio?: number;
   sr_detail?: {
     icon_img?: string;
     banner_img?: string;

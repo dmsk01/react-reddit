@@ -1,6 +1,9 @@
 import React, { useEffect, useRef } from "react";
 import ReactDOM from "react-dom";
 import { CommentForm } from "..";
+import { useAuthed } from "../../../hooks/useAuthed";
+import { useCommentsData } from "../../../hooks/useCommentsData";
+import { useToken } from "../../../hooks/useToken";
 import Actions from "./Actions/Actions";
 import { CommentsList } from "./Comments";
 
@@ -11,11 +14,17 @@ interface IPostProps {
   id?: string;
   selftext?: string;
   subreddit?: string;
+  title?: string;
+  body?: string;
+  upvote_ratio?: number;
 }
 
 const NOOP = () => {};
 
-export function Post({ onClose = NOOP, id }: IPostProps) {
+export function Post({ onClose = NOOP, id, title, selftext, upvote_ratio }: IPostProps) {
+  const [postComments] = useCommentsData(id);
+  const isAuthed = true; //TODO
+
   const ref = useRef<HTMLDivElement>(null);
   useEffect(() => {
     function handleClick(event: MouseEvent) {
@@ -36,20 +45,23 @@ export function Post({ onClose = NOOP, id }: IPostProps) {
 
   return ReactDOM.createPortal(
     <div className={styles.modal} ref={ref}>
-      <h2>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias repellendus ea laborum eius rerum hic inventore. Alias magni cupiditate culpa odit accusamus! Ipsa cum amet officia error, aperiam corrupti consequuntur?</h2>
+      <h2>{title}</h2>
       <div className={styles.content}>
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolor illo vero optio! Veniam amet cum ipsa explicabo laborum culpa dicta repellendus, voluptates qui maxime quaerat labore magni perspiciatis, obcaecati sit!</p>
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolor illo vero optio! Veniam amet cum ipsa explicabo laborum culpa dicta repellendus, voluptates qui maxime quaerat labore magni perspiciatis, obcaecati sit!</p>
+        <p>{selftext}</p>
       </div>
-      <div className={styles.postActions}>
-        <Actions />
-      </div>
-      <div className={styles.postCommentForm}>
-        <CommentForm />
-      </div>
-      <div className={styles.postComments}>
-        <CommentsList id={id} />
-      </div>
+      {isAuthed && (
+        <>
+          <div className={styles.postActions}>
+            <Actions comments={postComments.length} upvote_ratio={upvote_ratio} />
+          </div>
+          <div className={styles.postCommentForm}>
+            <CommentForm />
+          </div>
+          <div className={styles.postComments}>
+            <CommentsList id={id} postComments={postComments} />
+          </div>
+        </>
+      )}
     </div>,
     node
   );

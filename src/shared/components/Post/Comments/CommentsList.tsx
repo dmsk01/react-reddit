@@ -3,9 +3,8 @@ import { Break } from "../../Break";
 import { Dropdown } from "../../Dropdown";
 import { Comment } from "../Comment";
 import { AngleDownIcon } from "../../Icons";
-
+import { IPostComments } from "../../../../hooks/useCommentsData";
 import styles from "./comments.scss";
-import { useCommentsData } from "../../../../hooks/useCommentsData";
 
 interface ISortButton {
   title: string;
@@ -23,12 +22,10 @@ function SortButton({ title }: ISortButton) {
 interface ICommentsListProps {
   id?: string;
   subreddit?: string;
+  postComments?: IPostComments[];
 }
 
-export function CommentsList({ id }: ICommentsListProps) {
-  const [postComments] = useCommentsData(id);
-  console.log("[comments list] ", postComments);
-
+export function CommentsList({ id, postComments }: ICommentsListProps) {
   return (
     <div>
       <div className={styles.sortBlock}>
@@ -43,9 +40,7 @@ export function CommentsList({ id }: ICommentsListProps) {
         </span>
       </div>
       <div className={styles.commentsContainer}>
-        {postComments.map((comment) => {
-          console.log(comment.data?.author);
-
+        {postComments?.map((comment: IPostComments) => {
           return <Comment key={comment.data?.id} author={comment.data?.author} body={comment.data?.body} created={comment.data?.created} />;
         })}
       </div>

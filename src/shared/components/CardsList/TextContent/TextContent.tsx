@@ -11,6 +11,7 @@ interface ITextContent {
   id?: string;
   selftext?: string;
   subreddit?: string;
+  upvote_ratio?: number;
 }
 
 function timestampToDate(timestamp: number) {
@@ -22,7 +23,7 @@ function timestampToDate(timestamp: number) {
   return date;
 }
 
-export function TextContent({ title, author, created, icon_img, url, id, selftext, subreddit }: ITextContent) {
+export function TextContent({ title, author, created, icon_img, url, id, selftext, subreddit, upvote_ratio }: ITextContent) {
   return (
     <div className={styles.textContent}>
       <div className={styles.metaData}>
@@ -37,7 +38,7 @@ export function TextContent({ title, author, created, icon_img, url, id, selftex
           {created && timestampToDate(created)}
         </span>
       </div>
-      <Title title={title} url={url} id={id} selftext={selftext} subreddit={subreddit} />
+      <Title title={title} url={url} id={id} selftext={selftext} subreddit={subreddit} upvote_ratio={upvote_ratio} />
     </div>
   );
 }

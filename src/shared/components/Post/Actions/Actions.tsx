@@ -5,10 +5,10 @@ import styles from "./actions.scss";
 
 interface IActionsProps {
   comments?: string | number;
-  vote?: string | number;
+  upvote_ratio?: number;
 }
 
-function Actions({ comments = 22, vote = 54 }: IActionsProps) {
+function Actions({ comments = 22, upvote_ratio = 54 }: IActionsProps) {
   return (
     <ul className={styles.actionsList}>
       <li className={styles.actionsItem}>
@@ -36,7 +36,7 @@ function Actions({ comments = 22, vote = 54 }: IActionsProps) {
           <WarningIcon /> Report
         </button>
       </li>
-      <li className={styles.actionsItem}>{vote}% Voted</li>
+      <li className={styles.actionsItem}>{upvote_ratio * 100}% Voted</li>
     </ul>
   );
 }

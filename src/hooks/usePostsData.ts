@@ -7,7 +7,7 @@ export interface ISkillRanking {
   banner_img?: string;
 }
 
-interface IPostObject {
+export interface IPostObject {
   data?: IPostData;
 }
 
@@ -23,6 +23,7 @@ export interface IPostData {
   icon_img?: string;
   banner_img?: string;
   selftext?: string;
+  upvote_ratio?: number;
   sr_detail?: ISkillRanking;
 }
 
@@ -56,6 +57,7 @@ export function usePostsData() {
         headers: config,
       })
       .then((resp) => {
+        console.log(resp.data.data.children[1]);
         const recievedPosts = resp.data.data.children.map(({ data }: IPostObject) => ({
           title: data!.title,
           url: data!.url,
@@ -68,6 +70,7 @@ export function usePostsData() {
           id: data!.id,
           subreddit: data!.subreddit,
           selftext: data!.selftext,
+          upvote_ratio: data!.upvote_ratio,
         }));
         setPostsData(recievedPosts);
       })

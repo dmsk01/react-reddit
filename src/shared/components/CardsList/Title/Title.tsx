@@ -9,9 +9,10 @@ interface ITitleProps {
   id?: string;
   selftext?: string;
   subreddit?: string;
+  upvote_ratio?: number;
 }
 
-function Title({ title, url, id }: ITitleProps) {
+function Title({ title, url, id, selftext, upvote_ratio }: ITitleProps) {
   const [isModalOpened, setIsModalOpened] = useState(false);
   return (
     <h2 className={styles.title} onClick={() => console.log("header card clicked")}>
@@ -27,6 +28,9 @@ function Title({ title, url, id }: ITitleProps) {
       {isModalOpened && (
         <Post
           id={id}
+          title={title}
+          selftext={selftext}
+          upvote_ratio={upvote_ratio}
           onClose={() => {
             setIsModalOpened(false);
           }}

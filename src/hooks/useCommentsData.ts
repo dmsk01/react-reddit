@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { tokenContext } from "../shared/context/tokenContext";
 import axios from "axios";
 
-interface ICommentData {
+export interface ICommentData {
   created?: number;
   id?: string;
   selftext_html?: string;
