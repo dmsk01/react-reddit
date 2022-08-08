@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useContext, useEffect, useRef } from "react";
+import React, { ChangeEvent, useContext, useEffect, useRef, useState } from "react";
 import { commentContext } from "../../context/commentContext";
 import { AgnleBracketsIcon, ALetterIcon, ChangeIcon, CommentsIcon, DocumentIcon, DownloadIcon, LinkIcon, PDFIcon, PenIcon, PersonIcon, PictureIcon, RecordIcon } from "../Icons";
 
@@ -11,13 +11,13 @@ interface ICommentForm {
 
 export function CommentForm({ author, comment }: ICommentForm) {
   const ref = useRef<HTMLTextAreaElement>(null);
-  const { value, onChange } = useContext(commentContext);
+  const [value, setValue] = useState<string>("");
 
   useEffect(() => {
     ref?.current?.focus();
   }, []);
   function handleChange(event: ChangeEvent<HTMLTextAreaElement>) {
-    onChange && onChange(event.target.value);
+    setValue(event.target.value);
   }
   return (
     <form className={styles.form}>
