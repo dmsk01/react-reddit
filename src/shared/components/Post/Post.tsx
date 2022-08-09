@@ -1,9 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import ReactDOM from "react-dom";
 import { CommentForm } from "..";
-import { useAuthed } from "../../../hooks/useAuthed";
 import { useCommentsData } from "../../../hooks/useCommentsData";
-import { useToken } from "../../../hooks/useToken";
 import Actions from "./Actions/Actions";
 import { CommentsList } from "./Comments";
 
