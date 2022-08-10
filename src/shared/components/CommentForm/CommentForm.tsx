@@ -1,5 +1,6 @@
-import React, { ChangeEvent, useContext, useEffect, useRef, useState } from "react";
-import { commentContext } from "../../context/commentContext";
+import React, { ChangeEvent, useEffect, useRef } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState, updateComment } from "../../../strore";
 import { AgnleBracketsIcon, ALetterIcon, ChangeIcon, CommentsIcon, DocumentIcon, DownloadIcon, LinkIcon, PDFIcon, PenIcon, PersonIcon, PictureIcon, RecordIcon } from "../Icons";
 
 import styles from "./commentForm.scss";
@@ -11,13 +12,15 @@ interface ICommentForm {
 
 export function CommentForm({ author, comment }: ICommentForm) {
   const ref = useRef<HTMLTextAreaElement>(null);
-  const [value, setValue] = useState<string>("");
+  const value = useSelector<RootState, string>((state) => state.commentText);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     ref?.current?.focus();
   }, []);
+
   function handleChange(event: ChangeEvent<HTMLTextAreaElement>) {
-    setValue(event.target.value);
+    dispatch(updateComment(event.target.value));
   }
   return (
     <form className={styles.form}>
