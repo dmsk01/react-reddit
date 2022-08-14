@@ -1,30 +1,25 @@
-import React, { ChangeEvent, useEffect, useRef } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { RootState, updateComment } from "../../../strore";
+import React, { ChangeEvent, FormEvent, useEffect, useRef } from "react";
 import { AgnleBracketsIcon, ALetterIcon, ChangeIcon, CommentsIcon, DocumentIcon, DownloadIcon, LinkIcon, PDFIcon, PenIcon, PersonIcon, PictureIcon, RecordIcon } from "../Icons";
 
 import styles from "./commentForm.scss";
 
 interface ICommentForm {
   author?: string;
-  comment?: string;
+  value?: string;
+  onChange?: (event: ChangeEvent<HTMLTextAreaElement>) => void;
+  onSubmit?: (event: FormEvent) => void;
 }
 
-export function CommentForm({ author, comment }: ICommentForm) {
+export function CommentForm({ author, value, onChange, onSubmit }: ICommentForm) {
   const ref = useRef<HTMLTextAreaElement>(null);
-  const value = useSelector<RootState, string>((state) => state.commentText);
-  const dispatch = useDispatch();
 
   useEffect(() => {
     ref?.current?.focus();
   }, []);
 
-  function handleChange(event: ChangeEvent<HTMLTextAreaElement>) {
-    dispatch(updateComment(event.target.value));
-  }
   return (
-    <form className={styles.form}>
-      <textarea ref={ref} id="textarea" className={styles.input} value={value} onChange={handleChange} />
+    <form className={styles.form} onSubmit={onSubmit}>
+      <textarea ref={ref} id="textarea" className={styles.input} value={value} onChange={onChange} />
       {!value && (
         <label className={styles.textareaLabel} htmlFor="#textarea">
           <span>{author && author + ", "}</span>

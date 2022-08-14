@@ -3,7 +3,7 @@ import { userContext } from "../../../context/userContext";
 import { Avatar } from "../../Avatar";
 import { Break } from "../../Break";
 import { CarmaCounter } from "../../CardsList";
-import { CommentForm } from "../../CommentForm";
+import { ReplyFormContainer } from "../../ReplyFormContainer";
 import { CommentIcon, ShareIcon, WarningIcon } from "../../Icons";
 
 import styles from "./comment.scss";
@@ -51,7 +51,7 @@ export function Comment({ author, body, created }: ICommentData) {
             </button>
           </li>
         </ul>
-        {isReplyFormOpen && <CommentForm author={name} />}
+        {isReplyFormOpen && <ReplyFormContainer author={name} />}
       </div>
     </div>
   );

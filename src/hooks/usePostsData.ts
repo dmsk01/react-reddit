@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
-import { tokenContext } from "../shared/context/tokenContext";
 import axios from "axios";
+import { useSelector } from "react-redux";
+import { RootState } from "../store";
 
 export interface ISkillRanking {
   icon_img?: string;
@@ -32,7 +33,7 @@ interface IGetPostDataConfig {
 }
 
 export function usePostsData() {
-  const token = useContext(tokenContext);
+  const token = useSelector<RootState, string>((state) => state.token);
 
   const [postsData, setPostsData] = useState<IPostData[]>([]);
 

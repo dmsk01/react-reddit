@@ -1,19 +1,17 @@
-import { ActionCreator, AnyAction, Reducer } from "redux";
+import { Reducer } from "redux";
+import { UPDATE_COMMENT } from "./comment/action";
+import { SET_TOKEN } from "./token/action";
 
 export type RootState = {
   commentText: string;
+  token: string;
 };
 
 const initialState: RootState = {
-  commentText: "Hello",
+  commentText: "",
+  token: "",
 };
 
-export const UPDATE_COMMENT = "UPDATE_COMMENT";
-
-export const updateComment: ActionCreator<AnyAction> = (text) => ({
-  type: UPDATE_COMMENT,
-  text: text,
-});
 
 export const rootReducer: Reducer<RootState> = (state = initialState, action) => {
   switch (action.type) {
@@ -21,6 +19,12 @@ export const rootReducer: Reducer<RootState> = (state = initialState, action) =>
       return {
         ...state,
         commentText: action.text,
+      };
+  
+    case SET_TOKEN:
+      return {
+        ...state,
+        token: action.text,
       };
 
     default:

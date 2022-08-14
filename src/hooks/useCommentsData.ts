@@ -1,6 +1,7 @@
-import React, { useState, useEffect, useContext } from "react";
-import { tokenContext } from "../shared/context/tokenContext";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { useSelector } from "react-redux";
+import { RootState } from "../store";
 
 export interface ICommentData {
   created?: number;
@@ -17,7 +18,7 @@ export interface IPostComments {
 }
 
 export function useCommentsData(id?: string) {
-  const token = useContext(tokenContext);
+  const token = useSelector<RootState, string>((state) => state.token);
 
   const [postComments, setPostsComments] = useState<IPostComments[]>([]);
 
