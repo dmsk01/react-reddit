@@ -5,7 +5,7 @@ import { Content, Header, CardsList, Layout } from "./shared/components";
 import { UserContextProvider } from "./shared/context/userContext";
 import { PostsContextProvider } from "./shared/context/postsContext";
 
-import { createStore } from "redux";
+import { applyMiddleware, createStore, Middleware } from "redux";
 import { Provider, useDispatch } from "react-redux";
 import { rootReducer } from "./store/store";
 import { composeWithDevTools } from "@redux-devtools/extension";
@@ -13,7 +13,24 @@ import { setToken } from "./store";
 
 import "./main.global.scss";
 
-const store = createStore(rootReducer, composeWithDevTools());
+const logger: Middleware = (store) => (next) => (action) => {
+  console.log("dispatching: ", action);
+
+  const returnValue = next({ ...action, brand: "redux" });
+
+  console.log("action after next: ", returnValue);
+};
+
+const ping: Middleware = (store) => (next) => (action) => {
+  console.log("ping");
+  next(action);
+};
+const pong: Middleware = (store) => (next) => (action) => {
+  console.log("pong");
+  next(action);
+};
+
+const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(ping, pong)));
 
 function AppComponent() {
   const dispatch = useDispatch();
@@ -27,11 +44,6 @@ function AppComponent() {
       localStorage.setItem("token", token);
     }
   }, []);
-  // useEffect(() => {
-  //   if (window.__token__ && typeof window.__token__ !== "undefined" && window.__token__ !== undefined) {
-  //     dispatch(setToken(window.__token__));
-  //   }
-  // }, []);
 
   return (
     <UserContextProvider>
