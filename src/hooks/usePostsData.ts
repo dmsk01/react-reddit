@@ -58,7 +58,6 @@ export function usePostsData() {
         headers: config,
       })
       .then((resp) => {
-        console.log(resp.data.data.children[1]);
         const recievedPosts = resp.data.data.children.map(({ data }: IPostObject) => ({
           title: data!.title,
           url: data!.url,
