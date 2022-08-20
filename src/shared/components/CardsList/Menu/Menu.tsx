@@ -24,6 +24,8 @@ function MenuButton() {
   );
 }
 
+const noop = () => {};
+
 export function Menu() {
   const [list, setList] = React.useState(LIST);
   const handleItemClick = (id: string) => {
@@ -33,11 +35,7 @@ export function Menu() {
 
   return (
     <div className={styles.menu}>
-      <Dropdown
-        onOpen={() => console.log("opened")}
-        onClose={() => console.log("closed")}
-        button={<MenuButton />}
-      >
+      <Dropdown onOpen={noop} onClose={noop} button={<MenuButton />}>
         <div className={styles.dropdown}>
           <MenuItemsList postId="asdf123" />
           <button className={styles.closeButton}>

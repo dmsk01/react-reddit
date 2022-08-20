@@ -18,10 +18,9 @@ app.get("/auth", (req, res) => {
       headers: { "Content-type": "application/x-www-form-urlencoded" },
     })
     .then(({ data }) => {
-      console.log("Access token in server ", data["access_token"]);
       res.send(indexTemplate(ReactDOM.renderToString(App()), data["access_token"]));
     })
-    .catch(console.log);
+    .catch((e) => console.log("[Server.js - failed to load access token] ", e?.res));
 });
 
 app.listen(3000, () => {

@@ -45,7 +45,7 @@ export function useCommentsData(id?: string) {
       .then((resp) => {
         setPostsComments(resp?.data[1]?.data?.children);
       })
-      .catch(console.log);
+      .catch((e) => console.log("[useCommentsData.js - failed to load user post comments] ", e));
   }
 
   useEffect(() => {

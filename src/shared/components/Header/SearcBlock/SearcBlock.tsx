@@ -1,13 +1,15 @@
 import React, { useContext } from "react";
 import UserBlock from "./UserBlock/UserBlock";
 import styles from "./searcblock.scss";
-import { userContext } from "../../../context/userContext";
+import { useSelector } from "react-redux";
+import { IUser, RootState } from "../../../../store";
 
 export function SearcBlock() {
-  const { iconImg, name } = useContext(userContext);
+  const { name, iconImg } = useSelector<RootState, IUser>((state) => state.user);
+
   return (
     <div className={styles.searchBlock}>
-      <UserBlock avatarSrc={iconImg} username={name} />
+      <UserBlock name={name} iconImg={iconImg} />
     </div>
   );
 }

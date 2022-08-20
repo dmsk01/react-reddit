@@ -1,5 +1,4 @@
-import React, { useContext, useState } from "react";
-import { userContext } from "../../../context/userContext";
+import React, { useState } from "react";
 import { Avatar } from "../../Avatar";
 import { Break } from "../../Break";
 import { CarmaCounter } from "../../CardsList";
@@ -7,6 +6,8 @@ import { ReplyFormContainer } from "../../ReplyFormContainer";
 import { CommentIcon, ShareIcon, WarningIcon } from "../../Icons";
 
 import styles from "./comment.scss";
+import { useSelector } from "react-redux";
+import { IUser, RootState } from "../../../../store";
 
 interface ICommentData {
   author?: string;
@@ -15,7 +16,7 @@ interface ICommentData {
 }
 
 export function Comment({ author, body, created }: ICommentData) {
-  const { name } = useContext(userContext);
+  const { name } = useSelector<RootState, IUser>((state) => state.user);
   const [isReplyFormOpen, setIsReplyFormOpen] = useState(false);
   const handleReply = () => {
     setIsReplyFormOpen(!isReplyFormOpen);

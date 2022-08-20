@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useSelector } from "react-redux";
-import { RootState } from "../store";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState, setUser } from "../store";
 
 interface IUserData {
   name?: string;
@@ -10,28 +10,25 @@ interface IUserData {
 
 export function useUserData() {
   const token = useSelector<RootState, string>((state) => state.token);
-
-  const [data, setData] = useState<IUserData>({});
+  const dispatch = useDispatch();
 
   function getUserData() {
     axios
       .get("https://oauth.reddit.com/api/v1/me.json", {
         headers: {
-          Authorization: `bearer ${token}`,
+          Authorization: `Bearer ${token}`,
         },
       })
       .then((resp) => {
         const userData = resp.data;
-        setData({ name: userData.name, iconImg: userData.snoovatar_img });
+        const data = { name: userData.name, iconImg: userData.snoovatar_img };
+        dispatch(setUser(data));
       })
-      .catch(console.log);
+      .catch((e) => console.log("[useUserData.js - failed to load user name & avatar] ", e));
   }
-
   useEffect(() => {
-    // if (token !== "" && typeof token !== "undefined") return;
+    // if ((token === "" && typeof token === "undefined") || token.length === 0) return;
 
     getUserData();
   }, [token]);
-
-  return [data];
 }

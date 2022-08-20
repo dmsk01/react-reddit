@@ -74,7 +74,7 @@ export function usePostsData() {
         }));
         setPostsData(recievedPosts);
       })
-      .catch(console.log);
+      .catch((e) => console.log("[usePostData.js - failed to load post data] ", e));
   }
 
   useEffect(() => {

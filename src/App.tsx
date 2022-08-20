@@ -2,60 +2,67 @@ import React, { useEffect } from "react";
 import { hot } from "react-hot-loader/root";
 import { Content, Header, CardsList, Layout } from "./shared/components";
 
-import { UserContextProvider } from "./shared/context/userContext";
 import { PostsContextProvider } from "./shared/context/postsContext";
 
-import { applyMiddleware, createStore, Middleware } from "redux";
+import { Action, applyMiddleware, createStore, Middleware } from "redux";
 import { Provider, useDispatch } from "react-redux";
-import { rootReducer } from "./store/store";
+import { rootReducer, RootState } from "./store/store";
 import { composeWithDevTools } from "@redux-devtools/extension";
-import { setToken } from "./store";
+import thunk, { ThunkAction } from "redux-thunk";
+import { setToken, setUser } from "./store";
 
 import "./main.global.scss";
+import { useUserData } from "./hooks/useUserData";
 
-const logger: Middleware = (store) => (next) => (action) => {
-  console.log("dispatching: ", action);
+// const logger: Middleware = (store) => (next) => (action) => {
+//   console.log("dispatching: ", action);
 
-  const returnValue = next({ ...action, brand: "redux" });
+//   const returnValue = next({ ...action, brand: "redux" });
 
-  console.log("action after next: ", returnValue);
+//   console.log("action after next: ", returnValue);
+// };
+
+// const ping: Middleware = (store) => (next) => (action) => {
+//   console.log("ping");
+//   next(action);
+// };
+// const pong: Middleware = (store) => (next) => (action) => {
+//   console.log("pong");
+//   next(action);
+// };
+
+const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)));
+
+const timeout = (): ThunkAction<void, RootState, unknown, Action<string>> => (dispatch, getState) => {
+  dispatch({ type: "START" });
+
+  setTimeout(() => {
+    dispatch({ type: "FINISH" });
+  }, 2000);
 };
-
-const ping: Middleware = (store) => (next) => (action) => {
-  console.log("ping");
-  next(action);
-};
-const pong: Middleware = (store) => (next) => (action) => {
-  console.log("pong");
-  next(action);
-};
-
-const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(ping, pong)));
 
 function AppComponent() {
   const dispatch = useDispatch();
+  useUserData();
+  // const [data] = useUserData();
+  // console.log(data);
 
   useEffect(() => {
-    const token = localStorage.getItem("token") || window.__token__;
-
+    const token = window.__token__;
     dispatch(setToken(token));
-
-    if (token) {
-      localStorage.setItem("token", token);
-    }
+    //@ts-ignore
+    dispatch(timeout());
   }, []);
 
   return (
-    <UserContextProvider>
-      <Layout>
-        <Header />
-        <Content>
-          <PostsContextProvider>
-            <CardsList />
-          </PostsContextProvider>
-        </Content>
-      </Layout>
-    </UserContextProvider>
+    <Layout>
+      <Header />
+      <Content>
+        <PostsContextProvider>
+          <CardsList />
+        </PostsContextProvider>
+      </Content>
+    </Layout>
   );
 }
 
