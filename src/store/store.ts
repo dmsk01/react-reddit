@@ -14,7 +14,7 @@ const initialState: RootState = {
   token: "",
   user: {
     name: "Anonimous",
-    iconImg: "",
+    iconImg: "https://www.redditstatic.com/avatars/avatar_default_01_FF4500.png",
   },
 };
 

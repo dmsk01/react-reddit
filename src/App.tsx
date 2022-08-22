@@ -4,12 +4,12 @@ import { Content, Header, CardsList, Layout } from "./shared/components";
 
 import { PostsContextProvider } from "./shared/context/postsContext";
 
-import { Action, applyMiddleware, createStore, Middleware } from "redux";
+import { applyMiddleware, createStore } from "redux";
 import { Provider, useDispatch } from "react-redux";
-import { rootReducer, RootState } from "./store/store";
+import { rootReducer } from "./store/store";
 import { composeWithDevTools } from "@redux-devtools/extension";
-import thunk, { ThunkAction } from "redux-thunk";
-import { setToken, setUser } from "./store";
+import thunk from "redux-thunk";
+import { setToken } from "./store";
 
 import "./main.global.scss";
 import { useUserData } from "./hooks/useUserData";
@@ -33,13 +33,13 @@ import { useUserData } from "./hooks/useUserData";
 
 const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)));
 
-const timeout = (): ThunkAction<void, RootState, unknown, Action<string>> => (dispatch, getState) => {
-  dispatch({ type: "START" });
+// const timeout = (): ThunkAction<void, RootState, unknown, Action<string>> => (dispatch, getState) => {
+//   dispatch({ type: "START" });
 
-  setTimeout(() => {
-    dispatch({ type: "FINISH" });
-  }, 2000);
-};
+//   setTimeout(() => {
+//     dispatch({ type: "FINISH" });
+//   }, 2000);
+// };
 
 function AppComponent() {
   const dispatch = useDispatch();
@@ -50,8 +50,6 @@ function AppComponent() {
   useEffect(() => {
     const token = window.__token__;
     dispatch(setToken(token));
-    //@ts-ignore
-    dispatch(timeout());
   }, []);
 
   return (

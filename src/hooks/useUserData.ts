@@ -3,11 +3,6 @@ import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState, setUser } from "../store";
 
-interface IUserData {
-  name?: string;
-  iconImg?: string;
-}
-
 export function useUserData() {
   const token = useSelector<RootState, string>((state) => state.token);
   const dispatch = useDispatch();
@@ -22,13 +17,20 @@ export function useUserData() {
       .then((resp) => {
         const userData = resp.data;
         const data = { name: userData.name, iconImg: userData.snoovatar_img };
-        dispatch(setUser(data));
+        if (Object.values(data).every((field) => field)) {
+          dispatch(setUser(data));
+        }
       })
       .catch((e) => console.log("[useUserData.js - failed to load user name & avatar] ", e));
   }
   useEffect(() => {
-    // if ((token === "" && typeof token === "undefined") || token.length === 0) return;
+    // if (token === "" || typeof token === "undefined" || token.length === 0) return;
 
     getUserData();
   }, [token]);
 }
+
+const a = {
+  name: undefined,
+  img: undefined,
+};
