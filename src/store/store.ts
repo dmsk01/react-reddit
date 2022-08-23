@@ -1,24 +1,28 @@
 import { Reducer } from "redux";
-import { UPDATE_COMMENT } from "./comment/action";
-import { SET_TOKEN } from "./token/action";
-import { IUser, SET_USER } from "./user/user";
+import { UpdateCommentAction, UPDATE_COMMENT } from "./comment/action";
+import { SetTokenAction, SET_TOKEN } from "./token/action";
+import { UserRequestAction, UserRequestErrorAction, UserRequestSuccessAction, USER_REQUEST, USER_REQUEST_ERROR, USER_REQUEST_SUCCESS } from "./user/action";
+import { userReducer, UserState } from "./user/reducer";
 
 export type RootState = {
   commentText: string;
   token: string;
-  user: IUser;
+  user: UserState;
 };
 
 const initialState: RootState = {
   commentText: "",
   token: "",
   user: {
-    name: "Anonimous",
-    iconImg: "https://www.redditstatic.com/avatars/avatar_default_01_FF4500.png",
+    loading: false,
+    error: "",
+    data: {},
   },
 };
 
-export const rootReducer: Reducer<RootState> = (state = initialState, action) => {
+export type MyActions = UpdateCommentAction | SetTokenAction | UserRequestAction | UserRequestSuccessAction | UserRequestErrorAction;
+
+export const rootReducer: Reducer<RootState, MyActions> = (state = initialState, action) => {
   switch (action.type) {
     case UPDATE_COMMENT:
       return {
@@ -29,13 +33,15 @@ export const rootReducer: Reducer<RootState> = (state = initialState, action) =>
     case SET_TOKEN:
       return {
         ...state,
-        token: action.text,
+        token: action.token,
       };
 
-    case SET_USER:
+    case USER_REQUEST:
+    case USER_REQUEST_SUCCESS:
+    case USER_REQUEST_ERROR:
       return {
         ...state,
-        user: action.payload,
+        user: userReducer(state.user, action),
       };
 
     default:

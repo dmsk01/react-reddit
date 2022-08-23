@@ -16,7 +16,7 @@ interface ICommentData {
 }
 
 export function Comment({ author, body, created }: ICommentData) {
-  const { name } = useSelector<RootState, IUser>((state) => state.user);
+  const { name } = useSelector<RootState, IUser>((state) => state.user.data);
   const [isReplyFormOpen, setIsReplyFormOpen] = useState(false);
   const handleReply = () => {
     setIsReplyFormOpen(!isReplyFormOpen);

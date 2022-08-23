@@ -6,13 +6,12 @@ import { PostsContextProvider } from "./shared/context/postsContext";
 
 import { applyMiddleware, createStore } from "redux";
 import { Provider, useDispatch } from "react-redux";
-import { rootReducer } from "./store/store";
+import { rootReducer, setToken } from "./store";
 import { composeWithDevTools } from "@redux-devtools/extension";
 import thunk from "redux-thunk";
-import { setToken } from "./store";
+import { useUserData } from "./hooks/useUserData";
 
 import "./main.global.scss";
-import { useUserData } from "./hooks/useUserData";
 
 // const logger: Middleware = (store) => (next) => (action) => {
 //   console.log("dispatching: ", action);
@@ -31,8 +30,6 @@ import { useUserData } from "./hooks/useUserData";
 //   next(action);
 // };
 
-const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)));
-
 // const timeout = (): ThunkAction<void, RootState, unknown, Action<string>> => (dispatch, getState) => {
 //   dispatch({ type: "START" });
 
@@ -40,16 +37,18 @@ const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk
 //     dispatch({ type: "FINISH" });
 //   }, 2000);
 // };
+const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)));
 
 function AppComponent() {
   const dispatch = useDispatch();
   useUserData();
-  // const [data] = useUserData();
-  // console.log(data);
 
   useEffect(() => {
-    const token = window.__token__;
+    const token = localStorage.getItem("token") || window.__token__;
     dispatch(setToken(token));
+    if (token) {
+      localStorage.setItem("token", token);
+    }
   }, []);
 
   return (

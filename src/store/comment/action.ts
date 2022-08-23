@@ -1,8 +1,13 @@
-import { ActionCreator, AnyAction } from "redux";
+import { ActionCreator } from "redux";
 
 export const UPDATE_COMMENT = "UPDATE_COMMENT";
 
-export const updateComment: ActionCreator<AnyAction> = (text) => ({
+export type UpdateCommentAction = {
+  type: typeof UPDATE_COMMENT;
+  text: string;
+};
+
+export const updateComment: ActionCreator<UpdateCommentAction> = (text: string) => ({
   type: UPDATE_COMMENT,
   text: text,
 });

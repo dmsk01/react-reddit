@@ -1,15 +1,13 @@
-import { useEffect } from "react";
-import { ActionCreator, AnyAction } from "redux";
+import { ActionCreator } from "redux";
 
 export const SET_TOKEN = "SET_TOKEN";
 
-export const setToken: ActionCreator<AnyAction> = (text) => ({
-  type: SET_TOKEN,
-  text: text,
-});
+export type SetTokenAction = {
+  type: typeof SET_TOKEN;
+  token: string;
+};
 
-export const saveToken = () => {
-  useEffect(() => {
-    
-  },[])
-}
+export const setToken: ActionCreator<SetTokenAction> = (token: string) => ({
+  type: SET_TOKEN,
+  token: token,
+});
