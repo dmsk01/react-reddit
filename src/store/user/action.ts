@@ -1,4 +1,7 @@
-import { ActionCreator } from "redux";
+import axios from "axios";
+import { Action, ActionCreator } from "redux";
+import { ThunkAction } from "redux-thunk";
+import { RootState } from "../store";
 
 export interface IUser {
   name?: string;
@@ -38,3 +41,23 @@ export const userRequestError: ActionCreator<UserRequestErrorAction> = (error: s
   type: USER_REQUEST_ERROR,
   error,
 });
+
+export const userRequestAsync = (): ThunkAction<void, RootState, unknown, Action<string>> => (dispatch, getState) => {
+  dispatch(userRequest());
+  if (getState().token === "undefined" || !getState().token) return;
+  axios
+    .get("https://oauth.reddit.com/api/v1/me.json", {
+      headers: {
+        Authorization: `Bearer ${getState().token}`,
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+    })
+    .then((resp) => {
+      const userData = resp.data;
+      dispatch(userRequestSuccess({ name: userData.name, iconImg: userData.snoovatar_img }));
+    })
+    .catch((e) => {
+      console.log("[useUserData.js - failed to load user name & avatar] ", e);
+      dispatch(userRequestError(String(e)));
+    });
+};

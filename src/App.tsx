@@ -41,7 +41,6 @@ const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk
 
 function AppComponent() {
   const dispatch = useDispatch();
-  useUserData();
 
   useEffect(() => {
     const token = localStorage.getItem("token") || window.__token__;

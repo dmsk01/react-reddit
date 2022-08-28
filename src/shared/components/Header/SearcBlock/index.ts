@@ -1,2 +1,2 @@
-export * from "./SearcBlock";
+export * from "./SearchBlock";
 export * from "./UserBlock";

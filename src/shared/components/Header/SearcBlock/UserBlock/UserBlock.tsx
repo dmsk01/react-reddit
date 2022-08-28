@@ -7,9 +7,10 @@ import styles from "./userBlock.scss";
 interface IUserBlockProps {
   iconImg?: string;
   name?: string;
+  loading?: boolean;
 }
 
-function UserBlock({ iconImg, name }: IUserBlockProps) {
+function UserBlock({ iconImg, name, loading }: IUserBlockProps) {
   return (
     <a className={styles.userBox} href={"https://www.reddit.com/api/v1/authorize?client_id=" + process.env.CLIENT_ID + "&response_type=code&state=random_string&redirect_uri=http://localhost:3000/auth&duration=permanent&scope=identity read submit"}>
       <div className={styles.avatarBox}>
@@ -18,9 +19,15 @@ function UserBlock({ iconImg, name }: IUserBlockProps) {
 
       <div className={styles.username}>
         <Break size={12} />
-        <Text size={20} color={name ? EColor.black : EColor.gray99}>
-          {name || "Anonimous"}
-        </Text>
+        {loading ? (
+          <Text size={20} color={EColor.gray99}>
+            Loading...
+          </Text>
+        ) : (
+          <Text size={20} color={name ? EColor.black : EColor.gray99}>
+            {name || "Anonimous"}
+          </Text>
+        )}
       </div>
     </a>
   );

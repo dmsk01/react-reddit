@@ -26,12 +26,14 @@ export const userReducer: Reducer<UserState, UserActions> = (state = initialUser
       return {
         ...state,
         data: action.data,
+        loading: false,
       };
 
     case USER_REQUEST_ERROR:
       return {
         ...state,
         error: action.error,
+        loading: false,
       };
 
     default:

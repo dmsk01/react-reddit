@@ -16,7 +16,10 @@ const initialState: RootState = {
   user: {
     loading: false,
     error: "",
-    data: {},
+    data: {
+      name: "",
+      iconImg: "",
+    },
   },
 };
 
