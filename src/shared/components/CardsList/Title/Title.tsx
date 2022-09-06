@@ -15,7 +15,7 @@ interface ITitleProps {
 function Title({ title, url, id, selftext, upvote_ratio }: ITitleProps) {
   const [isModalOpened, setIsModalOpened] = useState(false);
   return (
-    <h2 className={styles.title} onClick={() => console.log("header card clicked")}>
+    <h2 className={styles.title} onClick={() => void 0}>
       <a
         href={"#post-url"}
         className={styles.postLink}

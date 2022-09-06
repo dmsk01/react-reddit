@@ -21,5 +21,10 @@ export function CommentFormContainer({ author }: ICommentFormContainer) {
     console.log(value);
   }
 
-  return <CommentForm author={author} value={value} onChange={handleChange} onSubmit={handleSubmit} />;
+  return <CommentForm
+    author={author}
+    // value={value}
+    // onChange={handleChange}
+    // onSubmit={handleSubmit}
+  />;
 }

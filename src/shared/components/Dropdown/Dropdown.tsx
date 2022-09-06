@@ -12,7 +12,7 @@ interface IDropdownProps {
 
 const NOOP = () => {};
 
-export function Dropdown({ button = "button", children, isOpen, onOpen = NOOP, onClose = NOOP }: IDropdownProps) {
+export function Dropdown({ button = "button", children, isOpen, onOpen, onClose }: IDropdownProps) {
   const [isDropdownOpen, setIsDropdownOpen] = useState(isOpen);
 
   const btnRef = useRef<HTMLDivElement>(null);
@@ -26,7 +26,9 @@ export function Dropdown({ button = "button", children, isOpen, onOpen = NOOP, o
   }, [isOpen]);
 
   useEffect(() => {
-    isDropdownOpen ? onOpen() : onClose();
+    if (onOpen && onClose) {
+      isDropdownOpen ? onOpen() : onClose();
+    }
   }, [isDropdownOpen]);
 
   useEffect(() => {

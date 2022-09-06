@@ -1,7 +1,7 @@
-import React, { ChangeEvent, FormEvent, useEffect, useRef } from "react";
-import { AgnleBracketsIcon, ALetterIcon, ChangeIcon, CommentsIcon, DocumentIcon, DownloadIcon, LinkIcon, PDFIcon, PenIcon, PersonIcon, PictureIcon, RecordIcon } from "../Icons";
-
+import React, { ChangeEvent, FormEvent, useEffect, useRef, useState } from "react";
+import { useForm } from "react-hook-form";
 import styles from "./commentForm.scss";
+import CommentActions from "./CommentActions/CommentActions";
 
 interface ICommentForm {
   author?: string;
@@ -10,90 +10,76 @@ interface ICommentForm {
   onSubmit?: (event: FormEvent) => void;
 }
 
-export function CommentForm({ author, value, onChange, onSubmit }: ICommentForm) {
+export function CommentForm({ author }: ICommentForm) {
+  const [value, setValue] = useState<string>("");
+  const [touched, setTouched] = useState(false);
+  // const [valueError, setValueError] = useState("");
   const ref = useRef<HTMLTextAreaElement>(null);
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    defaultValues: {
+      commentText: "",
+    },
+  });
 
   useEffect(() => {
     ref?.current?.focus();
   }, []);
 
-  return (
-    <form className={styles.form} onSubmit={onSubmit}>
-      <textarea ref={ref} id="textarea" className={styles.input} value={value} onChange={onChange} />
-      {!value && (
-        <label className={styles.textareaLabel} htmlFor="#textarea">
-          <span>{author && author + ", "}</span>
-          leave your comment
-        </label>
-      )}
+  // function handleSubmit(event: FormEvent) {
+  //   event.preventDefault();
+  //   setTouched(true);
 
-      <div className={styles.formBottom}>
-        <ul className={styles.actions}>
-          <li className={styles.action}>
-            <button className={styles.actionButton}>
-              <AgnleBracketsIcon />
-            </button>
-          </li>
-          <li className={styles.action}>
-            <button className={styles.actionButton}>
-              <PictureIcon />
-            </button>
-          </li>
-          <li className={styles.action}>
-            <button className={styles.actionButton}>
-              <DocumentIcon />
-            </button>
-          </li>
-          <li className={styles.action}>
-            <button className={styles.actionButton}>
-              <DownloadIcon />
-            </button>
-          </li>
-          <li className={styles.action}>
-            <button className={styles.actionButton}>
-              <PersonIcon />
-            </button>
-          </li>
-          <li className={styles.action}>
-            <button className={styles.actionButton}>
-              <ChangeIcon />
-            </button>
-          </li>
-          <li className={styles.action}>
-            <button className={styles.actionButton}>
-              <LinkIcon />
-            </button>
-          </li>
-          <li className={styles.action}>
-            <button className={styles.actionButton}>
-              <RecordIcon />
-            </button>
-          </li>
-          <li className={styles.action}>
-            <button className={styles.actionButton}>
-              <CommentsIcon />
-            </button>
-          </li>
-          <li className={styles.action}>
-            <button className={styles.actionButton}>
-              <PenIcon />
-            </button>
-          </li>
-          <li className={styles.action}>
-            <button className={styles.actionButton}>
-              <ALetterIcon />
-            </button>
-          </li>
-          <li className={styles.action}>
-            <button className={styles.actionButton}>
-              <PDFIcon />
-            </button>
-          </li>
-        </ul>
-        <button className={styles.button} type="submit">
-          Comment
-        </button>
-      </div>
-    </form>
+  //   setValueError(validateValue());
+
+  //   const isFormValid = !validateValue();
+  //   if (!isFormValid) return;
+
+  //   alert("Form sended");
+  //   setValue("");
+  // }
+
+  function handleChange(event: ChangeEvent<HTMLTextAreaElement>) {
+    setValue(event.target.value);
+  }
+
+  const onSubmit = (data: any) => console.log(data);
+
+  return (
+    <>
+      {/* <form className={styles.form}>
+         <textarea ref={ref} id="textarea" className={styles.input} value={value} onChange={handleChange} aria-invalid={valueError ? "true" : undefined} /> {touched && valueError && <div>{validateValue()}</div>}
+        {!value && (
+          <label className={styles.textareaLabel} htmlFor="#textarea">
+            <span>{author && author + ", "}</span>
+            leave your comment
+          </label>
+        )}  <div className={styles.formBottom}>
+          <div className={styles.actionsContainer}>
+            <CommentActions />
+          </div>
+          <button className={styles.button} type="submit">
+            Comment
+          </button>
+        </div> 
+      </form>*/}
+
+      <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
+        <textarea {...register("commentText", { required: "This is required", minLength: { value: 3, message: "Min length is 3" } })} className={styles.input} aria-invalid={errors.commentText?.message ? "true" : undefined} />
+        <p>{errors.commentText?.message}</p>
+        <div className={styles.formBottom}>
+          <div className={styles.actionsContainer}>
+            <CommentActions />
+          </div>
+          <button className={styles.button} type="submit">
+            Comment
+          </button>
+        </div>
+      </form>
+    </>
   );
 }

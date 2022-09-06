@@ -23,7 +23,9 @@ export function Comment({ author, body, created }: ICommentData) {
   };
   return (
     <div className={styles.commentsCard}>
-      <CarmaCounter />
+      <div className={styles.commentCarma}>
+        <CarmaCounter />
+      </div>
       <div className={styles.commentBody}>
         <div className={styles.commentHeader}>
           <Avatar />
