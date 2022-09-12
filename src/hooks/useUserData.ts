@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { IUser, RootState, userRequestAsync } from "../store";
 
@@ -10,12 +9,12 @@ export function useUserData() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (!token) return;
+    if (token === undefined || !token) return;
     dispatch<any>(userRequestAsync());
   }, [token]);
 
   return {
     data,
-    loading
+    loading,
   };
 }

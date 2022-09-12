@@ -11,8 +11,8 @@ interface ICommentForm {
 }
 
 export function CommentForm({ author }: ICommentForm) {
-  const [value, setValue] = useState<string>("");
-  const [touched, setTouched] = useState(false);
+  // const [value, setValue] = useState<string>("");
+  // const [touched, setTouched] = useState(false);
   // const [valueError, setValueError] = useState("");
   const ref = useRef<HTMLTextAreaElement>(null);
 
@@ -43,9 +43,9 @@ export function CommentForm({ author }: ICommentForm) {
   //   setValue("");
   // }
 
-  function handleChange(event: ChangeEvent<HTMLTextAreaElement>) {
-    setValue(event.target.value);
-  }
+  // function handleChange(event: ChangeEvent<HTMLTextAreaElement>) {
+  //   setValue(event.target.value);
+  // }
 
   const onSubmit = (data: any) => console.log(data);
 

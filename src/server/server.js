@@ -20,7 +20,7 @@ app.get("/auth", (req, res) => {
     .then(({ data }) => {
       res.send(indexTemplate(ReactDOM.renderToString(App()), data["access_token"]));
     })
-    .catch((e) => console.log("[Server.js - failed to load access token] ", e?.res));
+    .catch((e) => console.log("[Server.js - failed to load access token] ", e?.message));
 });
 
 app.listen(3000, () => {
