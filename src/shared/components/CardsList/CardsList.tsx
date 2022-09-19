@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { IPostsContextData } from "../../context/postsContext";
 import { Card } from "./Card/Card";
 
@@ -32,28 +32,30 @@ export function CardsList() {
   const token = useSelector<RootState>((state) => state.token);
   const [posts, setPosts] = useState<IPostItem[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
-  const [errorLoading, setErrorLoading] = useState<string>('');
+  const [errorLoading, setErrorLoading] = useState<string>("");
+  const [nextAfter, setNextAfter] = useState<string>("");
+  const bottomOfListing = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (!token) return;
-
     async function load() {
       setLoading(true);
-      setErrorLoading('');
+      setErrorLoading("");
       try {
         const {
           data: {
-            data: { children },
+            data: { after, children },
           },
         } = await axios.get("https://oauth.reddit.com/hot/", {
           headers: {
             Authorization: `Bearer ${token}`,
           },
           params: {
-            limit:10
-          }
+            limit: 10,
+            after: nextAfter,
+          },
         });
-        setPosts(children);
+        setNextAfter(after);
+        setPosts((prev) => prev.concat(...children));
       } catch (error) {
         setErrorLoading(String(error));
         console.error("Failed to load posts in CardList ", error);
@@ -62,26 +64,34 @@ export function CardsList() {
       }
     }
 
-    load();
-  }, [token]);
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) load();
+      },
+      {
+        rootMargin: "30px",
+      }
+    );
+    if (bottomOfListing.current) observer.observe(bottomOfListing.current);
+
+    return () => {
+      if (bottomOfListing.current) observer.unobserve(bottomOfListing.current);
+    };
+  }, [bottomOfListing.current, nextAfter, token]);
 
   return (
     <ul className={styles.cardsList}>
-      {posts.length === 0 && !loading && !errorLoading && (
-         <li role="status">Sorry, we can't find anything</li>
-      )}
+      {posts.length === 0 && !loading && !errorLoading && <li role="status">Sorry, we can't find anything</li>}
 
-      {posts.map(({ data }) => 
-        (<Card key={data?.title} title={data?.title} author={data?.author} url={data?.url} created={data?.created} ups={data?.ups} downs={data?.downs} icon_img={data?.icon_img} banner_img={data?.thumbnail === 'nsfw' ? '' : data?.thumbnail} id={data?.id} subreddit={data?.subreddit} selftext={data?.selftext} upvote_ratio={data?.upvote_ratio} />)
-      )}
+      {posts.map(({ data }) => (
+        <Card key={data?.title} title={data?.title} author={data?.author} url={data?.url} created={data?.created} ups={data?.ups} downs={data?.downs} icon_img={data?.icon_img} banner_img={data?.thumbnail === "nsfw" ? "" : data?.thumbnail} id={data?.id} subreddit={data?.subreddit} selftext={data?.selftext} upvote_ratio={data?.upvote_ratio} />
+      ))}
 
-      {errorLoading && (
-        <li role="alert">{errorLoading}</li>
-      )}
-      
-      {loading && (
-        <li role="status">Loading...</li>
-      )}
+      <div ref={bottomOfListing} />
+
+      {errorLoading && <li role="alert">{errorLoading}</li>}
+
+      {loading && <li role="status">Loading...</li>}
     </ul>
   );
 }
