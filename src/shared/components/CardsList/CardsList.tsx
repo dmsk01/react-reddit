@@ -1,5 +1,4 @@
-import React, { useContext, useEffect, useRef, useState } from "react";
-import { IPostsContextData } from "../../context/postsContext";
+import React, { useEffect, useRef, useState } from "react";
 import { Card } from "./Card/Card";
 
 import axios from "axios";
@@ -32,11 +31,11 @@ export function CardsList() {
   const token = useSelector<RootState>((state) => state.token);
   const [posts, setPosts] = useState<IPostItem[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
+  const [isPause, setIsPause] = useState<boolean>(false);
+  const [loadsNumber, setLoadsNumber] = useState<number>(0);
   const [errorLoading, setErrorLoading] = useState<string>("");
   const [nextAfter, setNextAfter] = useState<string>("");
   const bottomOfListing = useRef<HTMLDivElement>(null);
-  const [isPause, setIsPause] = useState<boolean>(false);
-  const [loadsNumber, setLoadsNumber] = useState<number>(0);
 
   const handlePause = async () => {
     setIsPause(false);
@@ -63,10 +62,7 @@ export function CardsList() {
       });
       setNextAfter(after);
       setPosts((prev) => prev.concat(...children));
-      setLoadsNumber((prev) => {
-        return ++prev;
-        // return prev === 2 ? 1 : ++prev;
-      });
+      setLoadsNumber((prev) => ++prev);
     } catch (error) {
       setErrorLoading(String(error));
       console.error("Failed to load posts in CardList ", error);
@@ -78,7 +74,6 @@ export function CardsList() {
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
-        console.log(loadsNumber);
         if (loadsNumber === 2) setIsPause(true);
 
         if (entries[0].isIntersecting && loadsNumber !== 2) {
@@ -105,7 +100,7 @@ export function CardsList() {
 
         {posts.map(({ data }) => (
           <Card
-            key={data?.title}
+            key={data?.id}
             title={data?.title}
             author={data?.author}
             url={data?.url}
@@ -128,11 +123,11 @@ export function CardsList() {
         {loading && <li role="status">Loading...</li>}
       </ul>
       {isPause && (
-        <div role="status">
+        <footer role="status" className={styles.postsFooter}>
           <button type="button" className="button" onClick={handlePause}>
             Load more
           </button>
-        </div>
+        </footer>
       )}
     </>
   );

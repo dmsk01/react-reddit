@@ -6,9 +6,9 @@ import { CommentFormContainer } from "..";
 import { CommentsList } from "./Comments";
 
 import styles from "./post.scss";
+import { useHistory } from "react-router-dom";
 
 interface IPostProps {
-  onClose?: () => void;
   id?: string;
   selftext?: string;
   subreddit?: string;
@@ -19,15 +19,20 @@ interface IPostProps {
 
 const NOOP = () => {};
 
-export function Post({ onClose = NOOP, id, title, selftext, upvote_ratio }: IPostProps) {
+export function Post({ id, title, selftext, upvote_ratio }: IPostProps) {
   const [postComments] = useCommentsData(id);
-  const isAuthed = true; //TODO
+  const history = useHistory();
+  const postId = history.location.key;
+  console.log(postId);
 
   const ref = useRef<HTMLDivElement>(null);
   useEffect(() => {
     function handleClick(event: MouseEvent) {
-      if (event.target instanceof Node && !ref.current?.contains(event.target)) {
-        onClose?.();
+      if (
+        event.target instanceof Node &&
+        !ref.current?.contains(event.target)
+      ) {
+        history.push("/");
       }
     }
 
@@ -47,10 +52,13 @@ export function Post({ onClose = NOOP, id, title, selftext, upvote_ratio }: IPos
       <div className={styles.content}>
         <p>{selftext}</p>
       </div>
-      {isAuthed && (
+      {
         <>
           <div className={styles.postActions}>
-            <Actions comments={postComments.length} upvote_ratio={upvote_ratio} />
+            <Actions
+              comments={postComments.length}
+              upvote_ratio={upvote_ratio}
+            />
           </div>
           <div className={styles.postCommentForm}>
             <CommentFormContainer />
@@ -59,7 +67,7 @@ export function Post({ onClose = NOOP, id, title, selftext, upvote_ratio }: IPos
             <CommentsList id={id} postComments={postComments} />
           </div>
         </>
-      )}
+      }
     </div>,
     node
   );

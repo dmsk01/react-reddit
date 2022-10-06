@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Post } from "../..";
+import React from "react";
+import { Link } from "react-router-dom";
 
 import styles from "./title.scss";
 
@@ -13,29 +13,11 @@ interface ITitleProps {
 }
 
 function Title({ title, url, id, selftext, upvote_ratio }: ITitleProps) {
-  const [isModalOpened, setIsModalOpened] = useState(false);
   return (
     <h2 className={styles.title} onClick={() => void 0}>
-      <a
-        href={"#post-url"}
-        className={styles.postLink}
-        onClick={() => {
-          setIsModalOpened(true);
-        }}
-      >
+      <Link to={`/posts/${id}`} className={styles.postLink}>
         {title && title}
-      </a>
-      {isModalOpened && (
-        <Post
-          id={id}
-          title={title}
-          selftext={selftext}
-          upvote_ratio={upvote_ratio}
-          onClose={() => {
-            setIsModalOpened(false);
-          }}
-        />
-      )}
+      </Link>
     </h2>
   );
 }
